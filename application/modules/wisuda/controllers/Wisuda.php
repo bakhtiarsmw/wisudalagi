@@ -30,7 +30,9 @@ class Wisuda extends MX_Controller {
     public function index()
     {
         $data['users'] = $this->m_wisuda->show_data()->result();
-        $this->load->view('index',$data);
+        $this->template->set_layout('v_frontend');
+        $this->template->set_partial('header', 'partials/v_header');
+        $this->template->build('index', $data);
     }
 
 

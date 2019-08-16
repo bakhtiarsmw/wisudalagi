@@ -1,260 +1,741 @@
 <!DOCTYPE html>
-<html>
+<!--
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4
+Version: Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<html lang="en" >
+<!-- begin::Head -->
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <title>
+        <?php echo $template['title'];?>
+    </title>
+    <meta name="description" content="Latest updates and statistic charts">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><?php echo $template['title'];?></title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="<?=base_url('assets/bower_components/bootstrap/dist/css/bootstrap.min.css')?>">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?=base_url('assets/bower_components/font-awesome/css/font-awesome.min.css')?>">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="<?=base_url('assets/bower_components/Ionicons/css/ionicons.min.css')?>">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="<?=base_url('assets/css/AdminLTE.min.css')?>">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="<?=base_url('assets/css/skins/_all-skins.min.css')?>">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
-<body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
-        <?php echo $template['partials']['header']; ?>
-        <div class="content-wrapper">
-            <?php echo $template['body'];?>
-        </div>
-
-        <footer class="main-footer">
-            <div class="pull-right hidden-xs">
-                <b>Version</b> 2.4.13
-            </div>
-            <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
-            reserved.
-        </footer>
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Create the tabs -->
-            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-
-                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <!-- Home tab content -->
-                <div class="tab-pane" id="control-sidebar-home-tab">
-                    <h3 class="control-sidebar-heading">Recent Activity</h3>
-                    <ul class="control-sidebar-menu">
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                    <p>Will be 23 on April 24th</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-user bg-yellow"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                                    <p>New phone +1(800)555-1234</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                                    <p>nora@example.com</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                                    <p>Execution time 5 seconds</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.control-sidebar-menu -->
-
-                    <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                    <ul class="control-sidebar-menu">
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Custom Template Design
-                                    <span class="label label-danger pull-right">70%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Update Resume
-                                    <span class="label label-success pull-right">95%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Laravel Integration
-                                    <span class="label label-warning pull-right">50%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Back End Framework
-                                    <span class="label label-primary pull-right">68%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.control-sidebar-menu -->
-
-                </div>
-                <!-- /.tab-pane -->
-                <!-- Stats tab content -->
-                <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-                <!-- /.tab-pane -->
-                <!-- Settings tab content -->
-                <div class="tab-pane" id="control-sidebar-settings-tab">
-                    <form method="post">
-                        <h3 class="control-sidebar-heading">General Settings</h3>
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Report panel usage
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Some information about this general settings option
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Allow mail redirect
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Other sets of options are available
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Expose author name in posts
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Allow the user to show his name in blog posts
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Show me as online
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Turn off notifications
-                                <input type="checkbox" class="pull-right">
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Delete chat history
-                                <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-                    </form>
-                </div>
-                <!-- /.tab-pane -->
-            </div>
-        </aside>
-        <!-- /.control-sidebar -->
-        <!-- Add the sidebar's background. This div must be placed
-             immediately after the control sidebar -->
-        <div class="control-sidebar-bg"></div>
-    </div>
-
-    <!-- jQuery 3 -->
-    <script src="<?=base_url('assets/bower_components/jquery/dist/jquery.min.js')?>"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="<?=base_url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js')?>"></script>
-    <!-- SlimScroll -->
-    <script src="<?=base_url('assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')?>"></script>
-    <!-- FastClick -->
-    <script src="<?=base_url('assets/bower_components/fastclick/lib/fastclick.js')?>"></script>
-    <!-- AdminLTE App -->
-    <script src="<?=base_url('assets/js/adminlte.min.js')?>"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="<?=base_url('assets/js/demo.js')?>"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--begin::Web font -->
+    <script src="<?=base_url('../assets/vendors/webfontloader.js')?>"></script>
     <script>
-        $(document).ready(function () {
-            $('.sidebar-menu').tree()
-        })
+        WebFont.load({
+            google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+        });
     </script>
+    <!--end::Web font -->
+    <!--begin::Base Styles -->
+    <!--begin::Page Vendors -->
+    <link href="<?=base_url('../assets/vendors/custom/fullcalendar/fullcalendar.bundle.css')?>" rel="stylesheet" type="text/css" />
+    <!--end::Page Vendors -->
+    <link href="<?=base_url('../assets/vendors/base/vendors.bundle.css')?>" rel="stylesheet" type="text/css" />
+    <link href="<?=base_url('../assets/demo/default/base/style.bundle.css')?>" rel="stylesheet" type="text/css" />
+    <!--end::Base Styles -->
+    <link rel="shortcut icon" href="<?=base_url('../assets/demo/default/media/img/logo/favicon.ico')?>" />
+</head>
+<!-- end::Head -->
+<!-- end::Body -->
+<body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >
+<!-- begin:: Page -->
+<div class="m-grid m-grid--hor m-grid--root m-page">
+    <!-- BEGIN: Header -->
+    <?php echo $template['partials']['header']; ?>
+    <!-- END: Header -->
+    <!-- begin::Body -->
+    <?php echo $template['body'];?>
+    <!-- end:: Body -->
+    <!-- begin::Footer -->
+    <footer class="m-grid__item m-footer ">
+        <div class="m-container m-container--fluid m-container--full-height m-page__container">
+            <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
+                <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
+							<span class="m-footer__copyright">
+								2017 &copy; Metronic theme by
+								<a href="#" class="m-link">
+									Keenthemes
+								</a>
+							</span>
+                </div>
+                <div class="m-stack__item m-stack__item--right m-stack__item--middle m-stack__item--first">
+                    <ul class="m-footer__nav m-nav m-nav--inline m--pull-right">
+                        <li class="m-nav__item">
+                            <a href="#" class="m-nav__link">
+										<span class="m-nav__link-text">
+											About
+										</span>
+                            </a>
+                        </li>
+                        <li class="m-nav__item">
+                            <a href="#"  class="m-nav__link">
+										<span class="m-nav__link-text">
+											Privacy
+										</span>
+                            </a>
+                        </li>
+                        <li class="m-nav__item">
+                            <a href="#" class="m-nav__link">
+										<span class="m-nav__link-text">
+											T&C
+										</span>
+                            </a>
+                        </li>
+                        <li class="m-nav__item">
+                            <a href="#" class="m-nav__link">
+										<span class="m-nav__link-text">
+											Purchase
+										</span>
+                            </a>
+                        </li>
+                        <li class="m-nav__item m-nav__item">
+                            <a href="#" class="m-nav__link" data-toggle="m-tooltip" title="Support Center" data-placement="left">
+                                <i class="m-nav__link-icon flaticon-info m--icon-font-size-lg3"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- end::Footer -->
+</div>
+<!-- end:: Page -->
+<!-- begin::Quick Sidebar -->
+<div id="m_quick_sidebar" class="m-quick-sidebar m-quick-sidebar--tabbed m-quick-sidebar--skin-light">
+    <div class="m-quick-sidebar__content m--hide">
+				<span id="m_quick_sidebar_close" class="m-quick-sidebar__close">
+					<i class="la la-close"></i>
+				</span>
+        <ul id="m_quick_sidebar_tabs" class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" role="tablist">
+            <li class="nav-item m-tabs__item">
+                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_messenger" role="tab">
+                    Messages
+                </a>
+            </li>
+            <li class="nav-item m-tabs__item">
+                <a class="nav-link m-tabs__link" 		data-toggle="tab" href="#m_quick_sidebar_tabs_settings" role="tab">
+                    Settings
+                </a>
+            </li>
+            <li class="nav-item m-tabs__item">
+                <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_logs" role="tab">
+                    Logs
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active m-scrollable" id="m_quick_sidebar_tabs_messenger" role="tabpanel">
+                <div class="m-messenger m-messenger--message-arrow m-messenger--skin-light">
+                    <div class="m-messenger__messages">
+                        <div class="m-messenger__message m-messenger__message--in">
+                            <div class="m-messenger__message-pic">
+                                <img src="<?=base_url('../assets/app/media/img//users/user3.jpg')?>" alt=""/>
+                            </div>
+                            <div class="m-messenger__message-body">
+                                <div class="m-messenger__message-arrow"></div>
+                                <div class="m-messenger__message-content">
+                                    <div class="m-messenger__message-username">
+                                        Megan wrote
+                                    </div>
+                                    <div class="m-messenger__message-text">
+                                        Hi Bob. What time will be the meeting ?
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-messenger__message m-messenger__message--out">
+                            <div class="m-messenger__message-body">
+                                <div class="m-messenger__message-arrow"></div>
+                                <div class="m-messenger__message-content">
+                                    <div class="m-messenger__message-text">
+                                        Hi Megan. It's at 2.30PM
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-messenger__message m-messenger__message--in">
+                            <div class="m-messenger__message-pic">
+                                <img src="<?=base_url('../assets/app/media/img//users/user3.jpg')?>" alt=""/>
+                            </div>
+                            <div class="m-messenger__message-body">
+                                <div class="m-messenger__message-arrow"></div>
+                                <div class="m-messenger__message-content">
+                                    <div class="m-messenger__message-username">
+                                        Megan wrote
+                                    </div>
+                                    <div class="m-messenger__message-text">
+                                        Will the development team be joining ?
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-messenger__message m-messenger__message--out">
+                            <div class="m-messenger__message-body">
+                                <div class="m-messenger__message-arrow"></div>
+                                <div class="m-messenger__message-content">
+                                    <div class="m-messenger__message-text">
+                                        Yes sure. I invited them as well
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-messenger__datetime">
+                            2:30PM
+                        </div>
+                        <div class="m-messenger__message m-messenger__message--in">
+                            <div class="m-messenger__message-pic">
+                                <img src="<?=base_url('../assets/app/media/img//users/user3.jpg')?>"  alt=""/>
+                            </div>
+                            <div class="m-messenger__message-body">
+                                <div class="m-messenger__message-arrow"></div>
+                                <div class="m-messenger__message-content">
+                                    <div class="m-messenger__message-username">
+                                        Megan wrote
+                                    </div>
+                                    <div class="m-messenger__message-text">
+                                        Noted. For the Coca-Cola Mobile App project as well ?
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-messenger__message m-messenger__message--out">
+                            <div class="m-messenger__message-body">
+                                <div class="m-messenger__message-arrow"></div>
+                                <div class="m-messenger__message-content">
+                                    <div class="m-messenger__message-text">
+                                        Yes, sure.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-messenger__message m-messenger__message--out">
+                            <div class="m-messenger__message-body">
+                                <div class="m-messenger__message-arrow"></div>
+                                <div class="m-messenger__message-content">
+                                    <div class="m-messenger__message-text">
+                                        Please also prepare the quotation for the Loop CRM project as well.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-messenger__datetime">
+                            3:15PM
+                        </div>
+                        <div class="m-messenger__message m-messenger__message--in">
+                            <div class="m-messenger__message-no-pic m--bg-fill-danger">
+										<span>
+											M
+										</span>
+                            </div>
+                            <div class="m-messenger__message-body">
+                                <div class="m-messenger__message-arrow"></div>
+                                <div class="m-messenger__message-content">
+                                    <div class="m-messenger__message-username">
+                                        Megan wrote
+                                    </div>
+                                    <div class="m-messenger__message-text">
+                                        Noted. I will prepare it.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-messenger__message m-messenger__message--out">
+                            <div class="m-messenger__message-body">
+                                <div class="m-messenger__message-arrow"></div>
+                                <div class="m-messenger__message-content">
+                                    <div class="m-messenger__message-text">
+                                        Thanks Megan. I will see you later.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-messenger__message m-messenger__message--in">
+                            <div class="m-messenger__message-pic">
+                                <img src="<?=base_url('../assets/app/media/img//users/user3.jpg')?>"  alt=""/>
+                            </div>
+                            <div class="m-messenger__message-body">
+                                <div class="m-messenger__message-arrow"></div>
+                                <div class="m-messenger__message-content">
+                                    <div class="m-messenger__message-username">
+                                        Megan wrote
+                                    </div>
+                                    <div class="m-messenger__message-text">
+                                        Sure. See you in the meeting soon.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-messenger__seperator"></div>
+                    <div class="m-messenger__form">
+                        <div class="m-messenger__form-controls">
+                            <input type="text" name="" placeholder="Type here..." class="m-messenger__form-input">
+                        </div>
+                        <div class="m-messenger__form-tools">
+                            <a href="" class="m-messenger__form-attachment">
+                                <i class="la la-paperclip"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane  m-scrollable" id="m_quick_sidebar_tabs_settings" role="tabpanel">
+                <div class="m-list-settings">
+                    <div class="m-list-settings__group">
+                        <div class="m-list-settings__heading">
+                            General Settings
+                        </div>
+                        <div class="m-list-settings__item">
+									<span class="m-list-settings__item-label">
+										Email Notifications
+									</span>
+                            <span class="m-list-settings__item-control">
+										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+											<label>
+												<input type="checkbox" checked="checked" name="">
+												<span></span>
+											</label>
+										</span>
+									</span>
+                        </div>
+                        <div class="m-list-settings__item">
+									<span class="m-list-settings__item-label">
+										Site Tracking
+									</span>
+                            <span class="m-list-settings__item-control">
+										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+											<label>
+												<input type="checkbox" name="">
+												<span></span>
+											</label>
+										</span>
+									</span>
+                        </div>
+                        <div class="m-list-settings__item">
+									<span class="m-list-settings__item-label">
+										SMS Alerts
+									</span>
+                            <span class="m-list-settings__item-control">
+										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+											<label>
+												<input type="checkbox" name="">
+												<span></span>
+											</label>
+										</span>
+									</span>
+                        </div>
+                        <div class="m-list-settings__item">
+									<span class="m-list-settings__item-label">
+										Backup Storage
+									</span>
+                            <span class="m-list-settings__item-control">
+										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+											<label>
+												<input type="checkbox" name="">
+												<span></span>
+											</label>
+										</span>
+									</span>
+                        </div>
+                        <div class="m-list-settings__item">
+									<span class="m-list-settings__item-label">
+										Audit Logs
+									</span>
+                            <span class="m-list-settings__item-control">
+										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+											<label>
+												<input type="checkbox" checked="checked" name="">
+												<span></span>
+											</label>
+										</span>
+									</span>
+                        </div>
+                    </div>
+                    <div class="m-list-settings__group">
+                        <div class="m-list-settings__heading">
+                            System Settings
+                        </div>
+                        <div class="m-list-settings__item">
+									<span class="m-list-settings__item-label">
+										System Logs
+									</span>
+                            <span class="m-list-settings__item-control">
+										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+											<label>
+												<input type="checkbox" name="">
+												<span></span>
+											</label>
+										</span>
+									</span>
+                        </div>
+                        <div class="m-list-settings__item">
+									<span class="m-list-settings__item-label">
+										Error Reporting
+									</span>
+                            <span class="m-list-settings__item-control">
+										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+											<label>
+												<input type="checkbox" name="">
+												<span></span>
+											</label>
+										</span>
+									</span>
+                        </div>
+                        <div class="m-list-settings__item">
+									<span class="m-list-settings__item-label">
+										Applications Logs
+									</span>
+                            <span class="m-list-settings__item-control">
+										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+											<label>
+												<input type="checkbox" name="">
+												<span></span>
+											</label>
+										</span>
+									</span>
+                        </div>
+                        <div class="m-list-settings__item">
+									<span class="m-list-settings__item-label">
+										Backup Servers
+									</span>
+                            <span class="m-list-settings__item-control">
+										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+											<label>
+												<input type="checkbox" checked="checked" name="">
+												<span></span>
+											</label>
+										</span>
+									</span>
+                        </div>
+                        <div class="m-list-settings__item">
+									<span class="m-list-settings__item-label">
+										Audit Logs
+									</span>
+                            <span class="m-list-settings__item-control">
+										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+											<label>
+												<input type="checkbox" name="">
+												<span></span>
+											</label>
+										</span>
+									</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane  m-scrollable" id="m_quick_sidebar_tabs_logs" role="tabpanel">
+                <div class="m-list-timeline">
+                    <div class="m-list-timeline__group">
+                        <div class="m-list-timeline__heading">
+                            System Logs
+                        </div>
+                        <div class="m-list-timeline__items">
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    12 new users registered
+                                    <span class="m-badge m-badge--warning m-badge--wide">
+												important
+											</span>
+                                </a>
+                                <span class="m-list-timeline__time">
+											Just now
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    System shutdown
+                                </a>
+                                <span class="m-list-timeline__time">
+											11 mins
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-danger"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    New invoice received
+                                </a>
+                                <span class="m-list-timeline__time">
+											20 mins
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    Database overloaded 89%
+                                    <span class="m-badge m-badge--success m-badge--wide">
+												resolved
+											</span>
+                                </a>
+                                <span class="m-list-timeline__time">
+											1 hr
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    System error
+                                </a>
+                                <span class="m-list-timeline__time">
+											2 hrs
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    Production server down
+                                    <span class="m-badge m-badge--danger m-badge--wide">
+												pending
+											</span>
+                                </a>
+                                <span class="m-list-timeline__time">
+											3 hrs
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    Production server up
+                                </a>
+                                <span class="m-list-timeline__time">
+											5 hrs
+										</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-list-timeline__group">
+                        <div class="m-list-timeline__heading">
+                            Applications Logs
+                        </div>
+                        <div class="m-list-timeline__items">
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    New order received
+                                    <span class="m-badge m-badge--info m-badge--wide">
+												urgent
+											</span>
+                                </a>
+                                <span class="m-list-timeline__time">
+											7 hrs
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    12 new users registered
+                                </a>
+                                <span class="m-list-timeline__time">
+											Just now
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    System shutdown
+                                </a>
+                                <span class="m-list-timeline__time">
+											11 mins
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-danger"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    New invoices received
+                                </a>
+                                <span class="m-list-timeline__time">
+											20 mins
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    Database overloaded 89%
+                                </a>
+                                <span class="m-list-timeline__time">
+											1 hr
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    System error
+                                    <span class="m-badge m-badge--info m-badge--wide">
+												pending
+											</span>
+                                </a>
+                                <span class="m-list-timeline__time">
+											2 hrs
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    Production server down
+                                </a>
+                                <span class="m-list-timeline__time">
+											3 hrs
+										</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-list-timeline__group">
+                        <div class="m-list-timeline__heading">
+                            Server Logs
+                        </div>
+                        <div class="m-list-timeline__items">
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    Production server up
+                                </a>
+                                <span class="m-list-timeline__time">
+											5 hrs
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    New order received
+                                </a>
+                                <span class="m-list-timeline__time">
+											7 hrs
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    12 new users registered
+                                </a>
+                                <span class="m-list-timeline__time">
+											Just now
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    System shutdown
+                                </a>
+                                <span class="m-list-timeline__time">
+											11 mins
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-danger"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    New invoice received
+                                </a>
+                                <span class="m-list-timeline__time">
+											20 mins
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    Database overloaded 89%
+                                </a>
+                                <span class="m-list-timeline__time">
+											1 hr
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    System error
+                                </a>
+                                <span class="m-list-timeline__time">
+											2 hrs
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    Production server down
+                                </a>
+                                <span class="m-list-timeline__time">
+											3 hrs
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    Production server up
+                                </a>
+                                <span class="m-list-timeline__time">
+											5 hrs
+										</span>
+                            </div>
+                            <div class="m-list-timeline__item">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                <a href="" class="m-list-timeline__text">
+                                    New order received
+                                </a>
+                                <span class="m-list-timeline__time">
+											1117 hrs
+										</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end::Quick Sidebar -->
+<!-- begin::Scroll Top -->
+<div class="m-scroll-top m-scroll-top--skin-top" data-toggle="m-scroll-top" data-scroll-offset="500" data-scroll-speed="300">
+    <i class="la la-arrow-up"></i>
+</div>
+<!-- end::Scroll Top -->		    <!-- begin::Quick Nav -->
+<ul class="m-nav-sticky" style="margin-top: 30px;">
+    <!--
+			<li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Showcase" data-placement="left">
+				<a href="">
+					<i class="la la-eye"></i>
+				</a>
+			</li>
+			<li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Pre-sale Chat" data-placement="left">
+				<a href="" >
+					<i class="la la-comments-o"></i>
+				</a>
+			</li>
+			-->
+    <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Purchase" data-placement="left">
+        <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" target="_blank">
+            <i class="la la-cart-arrow-down"></i>
+        </a>
+    </li>
+    <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Documentation" data-placement="left">
+        <a href="http://keenthemes.com/metronic/documentation.html" target="_blank">
+            <i class="la la-code-fork"></i>
+        </a>
+    </li>
+    <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Support" data-placement="left">
+        <a href="http://keenthemes.com/forums/forum/support/metronic5/" target="_blank">
+            <i class="la la-life-ring"></i>
+        </a>
+    </li>
+</ul>
+<!-- begin::Quick Nav -->
+<!--begin::Base Scripts -->
+<script src="<?=base_url('../assets/vendors/base/vendors.bundle.js')?>" type="text/javascript"></script>
+<script src="<?=base_url('../assets/demo/default/base/scripts.bundle.js')?>" type="text/javascript"></script>
+<!--end::Base Scripts -->
+<!--begin::Page Vendors -->
+<script src="<?=base_url('../assets/vendors/custom/fullcalendar/fullcalendar.bundle.js')?>" type="text/javascript"></script>
+<!--end::Page Vendors -->
+<!--begin::Page Snippets -->
+<script src="<?=base_url('../assets/app/js/dashboard.js" type="text/javascript')?>"></script>
+<!--end::Page Snippets -->
 </body>
+<!-- end::Body -->
 </html>
