@@ -6,77 +6,12 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit348f454eb170e31e510ccacb9d68059e
 {
-    public static $files = array (
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
-        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-    );
-
-    public static $prefixLengthsPsr4 = array (
-        'W' => 
-        array (
-            'Whoops\\' => 7,
-        ),
-        'S' => 
-        array (
-            'Symfony\\Polyfill\\Php72\\' => 23,
-            'Symfony\\Polyfill\\Mbstring\\' => 26,
-            'Symfony\\Polyfill\\Ctype\\' => 23,
-            'Symfony\\Component\\VarDumper\\' => 28,
-            'Scratchpad\\' => 11,
-        ),
-        'P' => 
-        array (
-            'Psr\\Log\\' => 8,
-        ),
-        'D' => 
-        array (
-            'Dotenv\\' => 7,
-        ),
-    );
-
-    public static $prefixDirsPsr4 = array (
-        'Whoops\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
-        ),
-        'Symfony\\Polyfill\\Php72\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
-        ),
-        'Symfony\\Polyfill\\Mbstring\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
-        ),
-        'Symfony\\Polyfill\\Ctype\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
-        ),
-        'Symfony\\Component\\VarDumper\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/var-dumper',
-        ),
-        'Scratchpad\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
-        'Psr\\Log\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
-        ),
-        'Dotenv\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
-        ),
-    );
-
     public static $prefixesPsr0 = array (
-        'P' => 
+        'o' => 
         array (
-            'PhpOption\\' => 
+            'org\\bovigo\\vfs' => 
             array (
-                0 => __DIR__ . '/..' . '/phpoption/phpoption/src',
+                0 => __DIR__ . '/..' . '/mikey179/vfsstream/src/main/php',
             ),
         ),
     );
@@ -84,8 +19,6 @@ class ComposerStaticInit348f454eb170e31e510ccacb9d68059e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit348f454eb170e31e510ccacb9d68059e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit348f454eb170e31e510ccacb9d68059e::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit348f454eb170e31e510ccacb9d68059e::$prefixesPsr0;
 
         }, null, ClassLoader::class);

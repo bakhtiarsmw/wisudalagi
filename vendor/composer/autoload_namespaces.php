@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src'),
+    'org\\bovigo\\vfs' => array($vendorDir . '/mikey179/vfsstream/src/main/php'),
 );

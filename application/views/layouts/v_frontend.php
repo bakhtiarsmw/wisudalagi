@@ -16,7 +16,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <head>
     <meta charset="utf-8" />
     <title>
-        <?php echo $template['title'];?>
+        <?=$template['title'];?> | Wisuda UNMER
     </title>
     <meta name="description" content="Latest updates and statistic charts">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,10 +47,76 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin:: Page -->
 <div class="m-grid m-grid--hor m-grid--root m-page">
     <!-- BEGIN: Header -->
+
     <?php echo $template['partials']['header']; ?>
     <!-- END: Header -->
     <!-- begin::Body -->
-    <?php echo $template['body'];?>
+    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+        <!-- BEGIN: Left Aside -->
+        <button class="m-aside-left-close  m-aside-left-close--skin-dark " id="m_aside_left_close_btn">
+            <i class="la la-close"></i>
+        </button>
+        <div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-dark ">
+            <!-- BEGIN: Aside Menu -->
+            <?php echo $template['partials']['aside']; ?>
+            <!-- END: Aside Menu -->
+        </div>
+        <!-- END: Left Aside -->
+        <div class="m-grid__item m-grid__item--fluid m-wrapper">
+            <!-- BEGIN: Subheader -->
+            <div class="m-subheader ">
+                <div class="d-flex align-items-center">
+                    <div class="mr-auto">
+                        <h3 class="m-subheader__title ">
+                            <?=$template['title'];?>
+                        </h3>
+                    </div>
+                    <div>
+                        <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
+                            <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                                <i class="la la-plus m--hide"></i>
+                                <i class="la la-ellipsis-h"></i>
+                            </a>
+                            <div class="m-dropdown__wrapper">
+                                <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                <div class="m-dropdown__inner">
+                                    <div class="m-dropdown__body">
+                                        <div class="m-dropdown__content">
+                                            <ul class="m-nav">
+                                                <li class="m-nav__section m-nav__section--first m--hide">
+                                                    <span class="m-nav__section-text">
+                                                        Quick Actions
+                                                    </span>
+                                                </li>
+                                                <li class="m-nav__item">
+                                                    <a href="" class="m-nav__link">
+                                                        <i class="m-nav__link-icon flaticon-share"></i>
+                                                        <span class="m-nav__link-text">
+                                                            Log Activity
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li class="m-nav__item">
+                                                    <a href="<?=base_url('auth/logout')?>" class="m-nav__link">
+                                                        <i class="m-nav__link-icon flaticon-logout"></i>
+                                                        <span class="m-nav__link-text">
+                                                            LogOut
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Subheader-->
+            <?php echo $template['body'];?>
+        </div>
+    </div>
     <!-- end:: Body -->
     <!-- begin::Footer -->
     <footer class="m-grid__item m-footer ">
@@ -68,30 +134,30 @@ License: You must have a valid license purchased only from themeforest(the above
                     <ul class="m-footer__nav m-nav m-nav--inline m--pull-right">
                         <li class="m-nav__item">
                             <a href="#" class="m-nav__link">
-										<span class="m-nav__link-text">
-											About
-										</span>
+                                <span class="m-nav__link-text">
+                                    About
+                                </span>
                             </a>
                         </li>
                         <li class="m-nav__item">
                             <a href="#"  class="m-nav__link">
-										<span class="m-nav__link-text">
-											Privacy
-										</span>
+                                <span class="m-nav__link-text">
+                                    Privacy
+                                </span>
                             </a>
                         </li>
                         <li class="m-nav__item">
                             <a href="#" class="m-nav__link">
-										<span class="m-nav__link-text">
-											T&C
-										</span>
+                                <span class="m-nav__link-text">
+                                    T&C
+                                </span>
                             </a>
                         </li>
                         <li class="m-nav__item">
                             <a href="#" class="m-nav__link">
-										<span class="m-nav__link-text">
-											Purchase
-										</span>
+                                <span class="m-nav__link-text">
+                                    Purchase
+                                </span>
                             </a>
                         </li>
                         <li class="m-nav__item m-nav__item">
@@ -231,9 +297,9 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                         <div class="m-messenger__message m-messenger__message--in">
                             <div class="m-messenger__message-no-pic m--bg-fill-danger">
-										<span>
-											M
-										</span>
+                                <span>
+                                    M
+                                </span>
                             </div>
                             <div class="m-messenger__message-body">
                                 <div class="m-messenger__message-arrow"></div>
@@ -294,69 +360,69 @@ License: You must have a valid license purchased only from themeforest(the above
                             General Settings
                         </div>
                         <div class="m-list-settings__item">
-									<span class="m-list-settings__item-label">
-										Email Notifications
-									</span>
+                            <span class="m-list-settings__item-label">
+                                Email Notifications
+                            </span>
                             <span class="m-list-settings__item-control">
-										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-											<label>
-												<input type="checkbox" checked="checked" name="">
-												<span></span>
-											</label>
-										</span>
-									</span>
+                                <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                    <label>
+                                        <input type="checkbox" checked="checked" name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </span>
                         </div>
                         <div class="m-list-settings__item">
-									<span class="m-list-settings__item-label">
-										Site Tracking
-									</span>
+                            <span class="m-list-settings__item-label">
+                                Site Tracking
+                            </span>
                             <span class="m-list-settings__item-control">
-										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-											<label>
-												<input type="checkbox" name="">
-												<span></span>
-											</label>
-										</span>
-									</span>
+                                <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                    <label>
+                                        <input type="checkbox" name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </span>
                         </div>
                         <div class="m-list-settings__item">
-									<span class="m-list-settings__item-label">
-										SMS Alerts
-									</span>
+                            <span class="m-list-settings__item-label">
+                                SMS Alerts
+                            </span>
                             <span class="m-list-settings__item-control">
-										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-											<label>
-												<input type="checkbox" name="">
-												<span></span>
-											</label>
-										</span>
-									</span>
+                                <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                    <label>
+                                        <input type="checkbox" name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </span>
                         </div>
                         <div class="m-list-settings__item">
-									<span class="m-list-settings__item-label">
-										Backup Storage
-									</span>
+                            <span class="m-list-settings__item-label">
+                                Backup Storage
+                            </span>
                             <span class="m-list-settings__item-control">
-										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-											<label>
-												<input type="checkbox" name="">
-												<span></span>
-											</label>
-										</span>
-									</span>
+                                <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                    <label>
+                                        <input type="checkbox" name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </span>
                         </div>
                         <div class="m-list-settings__item">
-									<span class="m-list-settings__item-label">
-										Audit Logs
-									</span>
+                            <span class="m-list-settings__item-label">
+                                Audit Logs
+                            </span>
                             <span class="m-list-settings__item-control">
-										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-											<label>
-												<input type="checkbox" checked="checked" name="">
-												<span></span>
-											</label>
-										</span>
-									</span>
+                                <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                    <label>
+                                        <input type="checkbox" checked="checked" name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </span>
                         </div>
                     </div>
                     <div class="m-list-settings__group">
@@ -364,69 +430,69 @@ License: You must have a valid license purchased only from themeforest(the above
                             System Settings
                         </div>
                         <div class="m-list-settings__item">
-									<span class="m-list-settings__item-label">
-										System Logs
-									</span>
+                            <span class="m-list-settings__item-label">
+                                System Logs
+                            </span>
                             <span class="m-list-settings__item-control">
-										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-											<label>
-												<input type="checkbox" name="">
-												<span></span>
-											</label>
-										</span>
-									</span>
+                                <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                    <label>
+                                        <input type="checkbox" name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </span>
                         </div>
                         <div class="m-list-settings__item">
-									<span class="m-list-settings__item-label">
-										Error Reporting
-									</span>
+                            <span class="m-list-settings__item-label">
+                                Error Reporting
+                            </span>
                             <span class="m-list-settings__item-control">
-										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-											<label>
-												<input type="checkbox" name="">
-												<span></span>
-											</label>
-										</span>
-									</span>
+                                <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                    <label>
+                                        <input type="checkbox" name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </span>
                         </div>
                         <div class="m-list-settings__item">
-									<span class="m-list-settings__item-label">
-										Applications Logs
-									</span>
+                            <span class="m-list-settings__item-label">
+                                Applications Logs
+                            </span>
                             <span class="m-list-settings__item-control">
-										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-											<label>
-												<input type="checkbox" name="">
-												<span></span>
-											</label>
-										</span>
-									</span>
+                                <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                    <label>
+                                        <input type="checkbox" name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </span>
                         </div>
                         <div class="m-list-settings__item">
-									<span class="m-list-settings__item-label">
-										Backup Servers
-									</span>
+                            <span class="m-list-settings__item-label">
+                                Backup Servers
+                            </span>
                             <span class="m-list-settings__item-control">
-										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-											<label>
-												<input type="checkbox" checked="checked" name="">
-												<span></span>
-											</label>
-										</span>
-									</span>
+                                <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                    <label>
+                                        <input type="checkbox" checked="checked" name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </span>
                         </div>
                         <div class="m-list-settings__item">
-									<span class="m-list-settings__item-label">
-										Audit Logs
-									</span>
+                            <span class="m-list-settings__item-label">
+                                Audit Logs
+                            </span>
                             <span class="m-list-settings__item-control">
-										<span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-											<label>
-												<input type="checkbox" name="">
-												<span></span>
-											</label>
-										</span>
-									</span>
+                                <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                    <label>
+                                        <input type="checkbox" name="">
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -443,12 +509,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <a href="" class="m-list-timeline__text">
                                     12 new users registered
                                     <span class="m-badge m-badge--warning m-badge--wide">
-												important
-											</span>
+                                        important
+                                    </span>
                                 </a>
                                 <span class="m-list-timeline__time">
-											Just now
-										</span>
+                                    Just now
+                                </span>
                             </div>
                             <div class="m-list-timeline__item">
                                 <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
@@ -456,8 +522,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                     System shutdown
                                 </a>
                                 <span class="m-list-timeline__time">
-											11 mins
-										</span>
+                                    11 mins
+                                </span>
                             </div>
                             <div class="m-list-timeline__item">
                                 <span class="m-list-timeline__badge m-list-timeline__badge--state-danger"></span>
@@ -465,8 +531,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                     New invoice received
                                 </a>
                                 <span class="m-list-timeline__time">
-											20 mins
-										</span>
+                                    20 mins
+                                </span>
                             </div>
                             <div class="m-list-timeline__item">
                                 <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
@@ -477,8 +543,8 @@ License: You must have a valid license purchased only from themeforest(the above
 											</span>
                                 </a>
                                 <span class="m-list-timeline__time">
-											1 hr
-										</span>
+                                    1 hr
+                                </span>
                             </div>
                             <div class="m-list-timeline__item">
                                 <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
@@ -486,16 +552,16 @@ License: You must have a valid license purchased only from themeforest(the above
                                     System error
                                 </a>
                                 <span class="m-list-timeline__time">
-											2 hrs
-										</span>
+                                    2 hrs
+                                </span>
                             </div>
                             <div class="m-list-timeline__item">
                                 <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
                                 <a href="" class="m-list-timeline__text">
                                     Production server down
                                     <span class="m-badge m-badge--danger m-badge--wide">
-												pending
-											</span>
+                                        pending
+                                    </span>
                                 </a>
                                 <span class="m-list-timeline__time">
 											3 hrs
@@ -553,8 +619,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                     New invoices received
                                 </a>
                                 <span class="m-list-timeline__time">
-											20 mins
-										</span>
+                                    20 mins
+                                </span>
                             </div>
                             <div class="m-list-timeline__item">
                                 <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
@@ -562,16 +628,16 @@ License: You must have a valid license purchased only from themeforest(the above
                                     Database overloaded 89%
                                 </a>
                                 <span class="m-list-timeline__time">
-											1 hr
-										</span>
+                                    1 hr
+                                </span>
                             </div>
                             <div class="m-list-timeline__item">
                                 <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
                                 <a href="" class="m-list-timeline__text">
                                     System error
                                     <span class="m-badge m-badge--info m-badge--wide">
-												pending
-											</span>
+                                        pending
+                                    </span>
                                 </a>
                                 <span class="m-list-timeline__time">
 											2 hrs

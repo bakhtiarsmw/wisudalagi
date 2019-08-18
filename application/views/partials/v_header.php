@@ -46,8 +46,8 @@
                             <a  href="#" class="m-menu__link m-menu__toggle">
                                 <i class="m-menu__link-icon flaticon-add"></i>
                                 <span class="m-menu__link-text">
-                                        Actions
-                                    </span>
+                                    Actions
+                                </span>
                                 <i class="m-menu__hor-arrow la la-angle-down"></i>
                                 <i class="m-menu__ver-arrow la la-angle-right"></i>
                             </a>
@@ -58,25 +58,25 @@
                                         <a  href="header/actions.html" class="m-menu__link ">
                                             <i class="m-menu__link-icon flaticon-file"></i>
                                             <span class="m-menu__link-text">
-                                                    Create New Post
-                                                </span>
+                                                Create New Post
+                                            </span>
                                         </a>
                                     </li>
                                     <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
                                         <a  href="header/actions.html" class="m-menu__link ">
                                             <i class="m-menu__link-icon flaticon-diagram"></i>
                                             <span class="m-menu__link-title">
-                                                    <span class="m-menu__link-wrap">
-                                                        <span class="m-menu__link-text">
-                                                            Generate Reports
-                                                        </span>
-                                                        <span class="m-menu__link-badge">
-                                                            <span class="m-badge m-badge--success">
-                                                                2
-                                                            </span>
+                                                <span class="m-menu__link-wrap">
+                                                    <span class="m-menu__link-text">
+                                                        Generate Reports
+                                                    </span>
+                                                    <span class="m-menu__link-badge">
+                                                        <span class="m-badge m-badge--success">
+                                                            2
                                                         </span>
                                                     </span>
                                                 </span>
+                                            </span>
                                         </a>
                                     </li>
                                     <li class="m-menu__item  m-menu__item--submenu"  data-menu-submenu-toggle="hover" data-redirect="true" aria-haspopup="true">
@@ -957,41 +957,41 @@
                                             <div class="m-dropdown__content">
                                                 <ul class="m-nav m-nav--skin-light">
                                                     <li class="m-nav__section m--hide">
-																	<span class="m-nav__section-text">
-																		Section
-																	</span>
+                                                        <span class="m-nav__section-text">
+                                                            Section
+                                                        </span>
                                                     </li>
                                                     <li class="m-nav__item">
                                                         <a href="header/profile.html" class="m-nav__link">
                                                             <i class="m-nav__link-icon flaticon-profile-1"></i>
                                                             <span class="m-nav__link-title">
-																			<span class="m-nav__link-wrap">
-																				<span class="m-nav__link-text">
-																					My Profile
-																				</span>
-																				<span class="m-nav__link-badge">
-																					<span class="m-badge m-badge--success">
-																						2
-																					</span>
-																				</span>
-																			</span>
-																		</span>
+                                                                <span class="m-nav__link-wrap">
+                                                                    <span class="m-nav__link-text">
+                                                                        My Profile
+                                                                    </span>
+                                                                    <span class="m-nav__link-badge">
+                                                                        <span class="m-badge m-badge--success">
+                                                                            2
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </span>
                                                         </a>
                                                     </li>
                                                     <li class="m-nav__item">
                                                         <a href="header/profile.html" class="m-nav__link">
                                                             <i class="m-nav__link-icon flaticon-share"></i>
                                                             <span class="m-nav__link-text">
-																			Activity
-																		</span>
+                                                                Activity
+                                                            </span>
                                                         </a>
                                                     </li>
                                                     <li class="m-nav__item">
                                                         <a href="header/profile.html" class="m-nav__link">
                                                             <i class="m-nav__link-icon flaticon-chat-1"></i>
                                                             <span class="m-nav__link-text">
-																			Messages
-																		</span>
+                                                                Messages
+                                                            </span>
                                                         </a>
                                                     </li>
                                                     <li class="m-nav__separator m-nav__separator--fit"></li>
@@ -999,16 +999,16 @@
                                                         <a href="header/profile.html" class="m-nav__link">
                                                             <i class="m-nav__link-icon flaticon-info"></i>
                                                             <span class="m-nav__link-text">
-																			FAQ
-																		</span>
+                                                                FAQ
+                                                            </span>
                                                         </a>
                                                     </li>
                                                     <li class="m-nav__item">
                                                         <a href="header/profile.html" class="m-nav__link">
                                                             <i class="m-nav__link-icon flaticon-lifebuoy"></i>
                                                             <span class="m-nav__link-text">
-																			Support
-																		</span>
+                                                                Support
+                                                            </span>
                                                         </a>
                                                     </li>
                                                     <li class="m-nav__separator m-nav__separator--fit"></li>
@@ -1025,9 +1025,9 @@
                             </li>
                             <li id="m_quick_sidebar_toggle" class="m-nav__item">
                                 <a href="#" class="m-nav__link m-dropdown__toggle">
-                                        <span class="m-nav__link-icon">
-                                            <i class="flaticon-grid-menu"></i>
-                                        </span>
+                                    <span class="m-nav__link-icon">
+                                        <i class="flaticon-grid-menu"></i>
+                                    </span>
                                 </a>
                             </li>
                         </ul>

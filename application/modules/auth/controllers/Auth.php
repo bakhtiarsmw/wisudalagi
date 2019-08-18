@@ -56,7 +56,7 @@ class Auth extends MX_Controller
 			}
 
 //			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'index', $this->data);
-            $this->template->build('wisuda', $this->data);
+            $this->template->build('Dashboard', $this->data);
         }
 	}
 
@@ -67,7 +67,7 @@ class Auth extends MX_Controller
 	{
         if ($this->ion_auth->logged_in())
         {
-            redirect('wisuda', 'refresh');
+            redirect('Dashboard', 'refresh');
         }else{
             $this->data = array();
             $this->data['title'] = $this->lang->line('login_heading');
@@ -86,7 +86,7 @@ class Auth extends MX_Controller
                     //if the login is successful
                     //redirect them back to the home page
                     $this->session->set_flashdata('message', $this->ion_auth->messages());
-                    redirect('wisuda', 'refresh');
+                    redirect('Dashboard', 'refresh');
                 }
                 else
                 {
