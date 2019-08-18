@@ -2,7 +2,7 @@
 <!-- END: Subheader -->
 <div class="m-content">
     <div class="row">
-        <div class="col-md-6 col-xs-12">
+        <div class="col-md-12 col-xs-12">
             <!--begin::Portlet-->
             <div class="m-portlet m-portlet--tab">
                 <div class="m-portlet__head">
