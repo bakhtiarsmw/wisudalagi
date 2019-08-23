@@ -1,4 +1,7 @@
 <?php
+
+use GuzzleHttp\Client;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends MX_Controller {
@@ -24,6 +27,7 @@ class Dashboard extends MX_Controller {
         $this->load->model('m_dashboard');
         $this->load->library('template');
         $this->load->library(['ion_auth', 'form_validation']);
+        $this->load->library('datatables');
         $this->load->helper(['url', 'language']);
         $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
         $this->lang->load('auth');
@@ -36,12 +40,28 @@ class Dashboard extends MX_Controller {
         {
             redirect('auth/login', 'refresh');
         }else {
+            $client = new GuzzleHttp\Client();
+            $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda',['query' => ['access_key' => 'latansa876']])->getBody()->getContents();
+
+            $data['data_va'] = $response;
+
             $data['users'] = $this->m_dashboard->show_data()->result();
             $this->template->set_layout('v_frontend');
             $this->template->set_partial('header', 'partials/v_header');
             $this->template->set_partial('aside', 'partials/v_aside');
             $this->template->build('index', $data);
         }
+    }
+
+    public function get_list_va(){
+        $client = new GuzzleHttp\Client();
+        $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda',['query' => ['access_key' => 'latansa876']])->getBody()->getContents();
+//        echo json_encode($response);
+
+        $bgst = json_decode($response);
+        echo json_encode($bgst->data);
+//        echo $cok->data[]->virtual_account;
+
     }
 
 

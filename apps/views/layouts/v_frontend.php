@@ -34,6 +34,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--end::Web font -->
     <!--begin::Base Styles -->
     <!--begin::Page Vendors -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="<?=base_url('../assets/vendors/custom/fullcalendar/fullcalendar.bundle.css')?>" rel="stylesheet" type="text/css" />
     <!--end::Page Vendors -->
     <link href="<?=base_url('../assets/vendors/base/vendors.bundle.css')?>" rel="stylesheet" type="text/css" />
@@ -792,15 +794,21 @@ License: You must have a valid license purchased only from themeforest(the above
     </li>
 </ul>
 <!-- begin::Quick Nav -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <!--begin::Base Scripts -->
 <script src="<?=base_url('../assets/vendors/base/vendors.bundle.js')?>" type="text/javascript"></script>
 <script src="<?=base_url('../assets/demo/default/base/scripts.bundle.js')?>" type="text/javascript"></script>
+
+
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 <!--end::Base Scripts -->
 <!--begin::Page Vendors -->
 <script src="<?=base_url('../assets/vendors/custom/fullcalendar/fullcalendar.bundle.js')?>" type="text/javascript"></script>
 <!--end::Page Vendors -->
 <!--begin::Page Snippets -->
-<script src="<?=base_url('../assets/app/js/dashboard.js" type="text/javascript')?>"></script>
+
+<script src="<?=base_url('../assets/app/js/custom.js" type="text/javascript')?>"></script>
 <!--end::Page Snippets -->
 </body>
 <!-- end::Body -->

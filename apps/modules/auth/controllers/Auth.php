@@ -56,7 +56,7 @@ class Auth extends MX_Controller
 			}
 
 //			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'index', $this->data);
-            $this->template->build('Dashboard', $this->data);
+            $this->template->build('dashboard', $this->data);
         }
 	}
 
@@ -67,7 +67,7 @@ class Auth extends MX_Controller
 	{
         if ($this->ion_auth->logged_in())
         {
-            redirect('Dashboard', 'refresh');
+            redirect('dashboard', 'refresh');
         }else{
             $this->data = array();
             $this->data['title'] = $this->lang->line('login_heading');
