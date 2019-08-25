@@ -4,7 +4,7 @@ use GuzzleHttp\Client;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends MX_Controller {
+class Pembayaran extends MX_Controller {
 
     /**
      * Index Page for this controller.
@@ -24,7 +24,7 @@ class Dashboard extends MX_Controller {
     function __construct(){
         parent::__construct();
         $this->load->database();
-        $this->load->model('m_dashboard');
+        $this->load->model('m_pembayaran');
         $this->load->library('template');
         $this->load->library(['ion_auth', 'form_validation']);
         $this->load->library('datatables');
@@ -40,7 +40,12 @@ class Dashboard extends MX_Controller {
         {
             redirect('auth/login', 'refresh');
         }else {
-            $data['users'] = $this->m_dashboard->show_data()->result();
+            $client = new GuzzleHttp\Client();
+            $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda',['query' => ['access_key' => 'latansa876']])->getBody()->getContents();
+
+            $data['data_va'] = $response;
+
+            $data['users'] = $this->m_pembayaran->show_data()->result();
             $this->template->set_layout('v_frontend');
             $this->template->set_partial('header', 'partials/v_header');
             $this->template->set_partial('aside', 'partials/v_aside');
@@ -48,6 +53,22 @@ class Dashboard extends MX_Controller {
         }
     }
 
+    public function get_list_va(){
+        $client = new GuzzleHttp\Client();
+        $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda',['query' => ['access_key' => 'latansa876']])->getBody()->getContents();
+//        echo json_encode($response);
+
+        $bgst = json_decode($response);
+        $dataSource = array(
+            'draw'=>1,
+            'recordsTotal'=>118,
+            'recordsFiltered'=>118,
+            'data' => $bgst->data,
+        );
+        header("Content-type: application/json; charset=utf-8");
+        echo json_encode($dataSource);
+
+    }
 
 
 }
