@@ -58,15 +58,16 @@ class Pembayaran extends MX_Controller {
         $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda',['query' => ['access_key' => 'latansa876']])->getBody()->getContents();
 //        echo json_encode($response);
 
-        $bgst = json_decode($response);
+        $jsonResource = json_decode($response);
         $dataSource = array(
             'draw'=>1,
             'recordsTotal'=>118,
             'recordsFiltered'=>118,
-            'data' => $bgst->data,
+            'data' => $jsonResource->data,
         );
         header("Content-type: application/json; charset=utf-8");
-        echo json_encode($dataSource);
+
+        echo json_encode($jsonResource->data);
 
     }
 
