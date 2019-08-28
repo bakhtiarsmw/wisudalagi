@@ -14,14 +14,13 @@
 #</IfModule>
 
 RewriteEngine On
-RewriteBase /codeigniter/
 
 RewriteRule ^\.htaccess$ - [F]
 
-RewriteCond %{REQUEST_URI} ^/codeigniter/?$
+RewriteCond %{REQUEST_URI} ^/wisuda/?$
 RewriteRule ^.*$ public/index.php [NC,L]
 
-RewriteCond %{REQUEST_URI} !^/codeigniter/public/.*$
+RewriteCond %{REQUEST_URI} !^/wisuda/public/.*$
 RewriteRule ^(.*)$ public/$1
 
 RewriteCond %{REQUEST_FILENAME} -f
