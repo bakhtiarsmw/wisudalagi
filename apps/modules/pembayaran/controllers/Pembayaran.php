@@ -55,27 +55,6 @@ class Pembayaran extends MX_Controller {
 
     public function get_list_va(){
         $client = new GuzzleHttp\Client();
-<<<<<<< Updated upstream
-        $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda',['query' => ['access_key' => 'latansa876']])->getBody()->getContents();
-=======
-<<<<<<< HEAD
-        $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda',[
-            'auth' => ['rofickachmad', 'latansa876'],
-            'query' => ['access_key' => 'latansa876']])->getBody()->getContents();
->>>>>>> Stashed changes
-//        echo json_encode($response);
-
-        $jsonResource = json_decode($response);
-        $dataSource = array(
-            'draw'=>1,
-            'recordsTotal'=>118,
-            'recordsFiltered'=>118,
-            'data' => $jsonResource->data,
-        );
-        header("Content-type: application/json; charset=utf-8");
-
-        echo json_encode($jsonResource->data);
-=======
         $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda',
             [
 
@@ -83,14 +62,7 @@ class Pembayaran extends MX_Controller {
                 'query' => ['access_key' => 'latansa876']
             ])->getBody()->getContents();
 
-        echo json_encode($response);
-
-
-//        $jsonResource = json_decode($response);
-//        header("Content-type: application/json; charset=utf-8");
-//
-//        echo json_encode($jsonResource->data);
->>>>>>> v001
+        echo json_encode($jsonResource->data);
 
     }
 
