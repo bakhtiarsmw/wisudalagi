@@ -1,22 +1,10 @@
 <!DOCTYPE html>
-<!--
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4
-Version: Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
 <html lang="en" >
 <!-- begin::Head -->
 <head>
     <meta charset="utf-8" />
     <title>
-        Metronic | Login Page - 4
+        Login Page | Wisuda UNMER
     </title>
     <meta name="description" content="Latest updates and statistic charts">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -158,9 +146,9 @@ License: You must have a valid license purchased only from themeforest(the above
                     </form>
                 </div>
                 <div class="m-login__account">
-							<span class="m-login__account-msg">
-								Don't have an account yet ?
-							</span>
+                    <span class="m-login__account-msg">
+                        Don't have an account yet ?
+                    </span>
                     &nbsp;&nbsp;
                     <a href="javascript:;" id="m_login_signup" class="m-link m-link--light m-login__account-link">
                         Sign Up

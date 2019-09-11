@@ -22,7 +22,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--begin::Web font -->
-    <script src="<?=base_url('../assets/vendors/webfontloader.js')?>"></script>
+    <script src="<?=base_url('../public/assets/vendors/webfontloader.js')?>"></script>
     <script>
         WebFont.load({
             google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
@@ -34,7 +34,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--end::Web font -->
     <!--begin::Base Styles -->
     <!--begin::Page Vendors -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="<?=base_url('../assets/vendors/custom/fullcalendar/fullcalendar.bundle.css')?>" rel="stylesheet" type="text/css" />
     <!--end::Page Vendors -->
@@ -42,6 +42,12 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="<?=base_url('../assets/demo/default/base/style.bundle.css')?>" rel="stylesheet" type="text/css" />
     <!--end::Base Styles -->
     <link rel="shortcut icon" href="<?=base_url('../assets/demo/default/media/img/logo/favicon.ico')?>" />
+
+    <!--Datatable-->
+<!--    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css" rel="stylesheet">
+
 </head>
 <!-- end::Head -->
 <!-- end::Body -->
@@ -73,46 +79,6 @@ License: You must have a valid license purchased only from themeforest(the above
                             <?=$template['title'];?>
                         </h3>
                     </div>
-                    <div>
-                        <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
-                            <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-                                <i class="la la-plus m--hide"></i>
-                                <i class="la la-ellipsis-h"></i>
-                            </a>
-                            <div class="m-dropdown__wrapper">
-                                <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                                <div class="m-dropdown__inner">
-                                    <div class="m-dropdown__body">
-                                        <div class="m-dropdown__content">
-                                            <ul class="m-nav">
-                                                <li class="m-nav__section m-nav__section--first m--hide">
-                                                    <span class="m-nav__section-text">
-                                                        Quick Actions
-                                                    </span>
-                                                </li>
-                                                <li class="m-nav__item">
-                                                    <a href="" class="m-nav__link">
-                                                        <i class="m-nav__link-icon flaticon-share"></i>
-                                                        <span class="m-nav__link-text">
-                                                            Log Activity
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li class="m-nav__item">
-                                                    <a href="<?=base_url('auth/logout')?>" class="m-nav__link">
-                                                        <i class="m-nav__link-icon flaticon-logout"></i>
-                                                        <span class="m-nav__link-text">
-                                                            LogOut
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <!-- END Subheader-->
@@ -126,9 +92,9 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
                 <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
 							<span class="m-footer__copyright">
-								2017 &copy; Metronic theme by
+								2019 &copy; UNMER
 								<a href="#" class="m-link">
-									Keenthemes
+									FTI
 								</a>
 							</span>
                 </div>
@@ -763,45 +729,12 @@ License: You must have a valid license purchased only from themeforest(the above
 <div class="m-scroll-top m-scroll-top--skin-top" data-toggle="m-scroll-top" data-scroll-offset="500" data-scroll-speed="300">
     <i class="la la-arrow-up"></i>
 </div>
-<!-- end::Scroll Top -->		    <!-- begin::Quick Nav -->
-<ul class="m-nav-sticky" style="margin-top: 30px;">
-    <!--
-			<li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Showcase" data-placement="left">
-				<a href="">
-					<i class="la la-eye"></i>
-				</a>
-			</li>
-			<li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Pre-sale Chat" data-placement="left">
-				<a href="" >
-					<i class="la la-comments-o"></i>
-				</a>
-			</li>
-			-->
-    <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Purchase" data-placement="left">
-        <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" target="_blank">
-            <i class="la la-cart-arrow-down"></i>
-        </a>
-    </li>
-    <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Documentation" data-placement="left">
-        <a href="http://keenthemes.com/metronic/documentation.html" target="_blank">
-            <i class="la la-code-fork"></i>
-        </a>
-    </li>
-    <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Support" data-placement="left">
-        <a href="http://keenthemes.com/forums/forum/support/metronic5/" target="_blank">
-            <i class="la la-life-ring"></i>
-        </a>
-    </li>
-</ul>
 <!-- begin::Quick Nav -->
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <!--begin::Base Scripts -->
 <script src="<?=base_url('../assets/vendors/base/vendors.bundle.js')?>" type="text/javascript"></script>
 <script src="<?=base_url('../assets/demo/default/base/scripts.bundle.js')?>" type="text/javascript"></script>
 
-
-<script src="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <!--end::Base Scripts -->
 <!--begin::Page Vendors -->
 <script src="<?=base_url('../assets/vendors/custom/fullcalendar/fullcalendar.bundle.js')?>" type="text/javascript"></script>
@@ -810,6 +743,13 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <script src="<?=base_url('../assets/app/js/custom.js" type="text/javascript')?>"></script>
 <!--end::Page Snippets -->
+
+
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
 </body>
 <!-- end::Body -->
 </html>
