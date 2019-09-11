@@ -35,7 +35,12 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--begin::Base Styles -->
     <!--begin::Page Vendors -->
 
+
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+
     <link href="<?=base_url('../assets/vendors/custom/fullcalendar/fullcalendar.bundle.css')?>" rel="stylesheet" type="text/css" />
     <!--end::Page Vendors -->
     <link href="<?=base_url('../assets/vendors/base/vendors.bundle.css')?>" rel="stylesheet" type="text/css" />
@@ -91,12 +96,12 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="m-container m-container--fluid m-container--full-height m-page__container">
             <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
                 <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
-							<span class="m-footer__copyright">
-								2019 &copy; UNMER
-								<a href="#" class="m-link">
-									FTI
-								</a>
-							</span>
+                    <span class="m-footer__copyright">
+                        2019 &copy; UNMER
+                        <a href="#" class="m-link">
+                            FTI
+                        </a>
+                    </span>
                 </div>
                 <div class="m-stack__item m-stack__item--right m-stack__item--middle m-stack__item--first">
                     <ul class="m-footer__nav m-nav m-nav--inline m--pull-right">
@@ -155,7 +160,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 </a>
             </li>
             <li class="nav-item m-tabs__item">
-                <a class="nav-link m-tabs__link" 		data-toggle="tab" href="#m_quick_sidebar_tabs_settings" role="tab">
+                <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_settings" role="tab">
                     Settings
                 </a>
             </li>
@@ -734,6 +739,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--begin::Base Scripts -->
 <script src="<?=base_url('../assets/vendors/base/vendors.bundle.js')?>" type="text/javascript"></script>
 <script src="<?=base_url('../assets/demo/default/base/scripts.bundle.js')?>" type="text/javascript"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 <!--end::Base Scripts -->
 <!--begin::Page Vendors -->
