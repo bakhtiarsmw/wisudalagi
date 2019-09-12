@@ -49,6 +49,35 @@ class Pembayaran extends MX_Controller {
         }
     }
 
+    public function get_inquiry($trx_id){
+        try {
+            $client = new GuzzleHttp\Client();
+            $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda/inquiry',
+                [
+                    'auth' => ['rofickachmad', 'latansa876'],
+                    'query' => ['type' => 'inquirybilling', 'client_id' => '00238', 'trx_id' => $trx_id, 'access_key' => 'latansa876']
+                ])->getBody()->getContents();
+
+            $jsonResource = json_decode($response);
+
+            $response = array(
+                'status' =>  $jsonResource->status,
+                'message' => $jsonResource->data,
+            );
+        }catch (\GuzzleHttp\Exception\ClientException $e) {
+
+            $hand = $e->getResponse()->getBody()->getContents();
+            $dataJson = json_decode($hand);
+            $response = array(
+                'status' =>  $dataJson->status,
+                'message' => $dataJson->message,
+            );
+
+        }
+
+        $this->load->view('invoice', $response);
+
+    }
     public function get_list_va(){
         $client = new GuzzleHttp\Client();
         $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda',
