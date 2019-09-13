@@ -161,6 +161,7 @@ class Pembayaran extends MX_Controller {
 //            );
 
             $client = new GuzzleHttp\Client();
+            $tagihan = str_replace(".", "", $this->input->post('trx_amount'));
 
 
             try {
@@ -170,13 +171,13 @@ class Pembayaran extends MX_Controller {
                         'type' => 'createbilling',
                         'client_id' => '00238',
                         'trx_id' => $id[0]->TrxId,
-                        'trx_amount' => trim($this->input->post('trx_amount')) + 2500,
+                        'trx_amount' => trim($tagihan) + 2500,
                         'billing_type' => 'c',
                         'customer_name' => trim($this->input->post('customer_name')),
                         'customer_email' => trim($this->input->post('customer_email')),
                         'customer_phone' => trim($this->input->post('customer_phone')),
                         'virtual_account' => trim($this->input->post('virtual_account')),
-                        'datetime_expired_iso8601' => date("c", strtotime(date('Y-m-d H:i:s'). ' + 1 days')),
+                        'datetime_expired_iso8601' => date("c", strtotime(date('Y-m-d H:i:s'). ' + 2 days')),
                         'va_status' => 1,
                         'access_key' => 'latansa876',
                     ]

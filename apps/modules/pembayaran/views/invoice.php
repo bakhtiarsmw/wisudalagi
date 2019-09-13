@@ -11,7 +11,7 @@ $data = json_decode(json_encode($message,true));
 <div class="wrapper-layout" style="width:595px;height:842px;border:solid 1px #E4E4E4;padding:0;">
     <div class="logo-bni" style="width:100%;background:#F8F8F8;height:auto;">
         <div class="img-bni" style="padding:20px;border-bottom:solid 1px #E4E4E4;">
-            <img src="https://upload.wikimedia.org/wikipedia/id/thumb/5/55/BNI_logo.svg/1280px-BNI_logo.svg.png" style="width:150px;">
+            <img src="<?=base_url('../assets/img/uner.png')?>" style="width:300px;">
         </div>
     </div>
     <div class="content-layout">
@@ -75,9 +75,25 @@ $data = json_decode(json_encode($message,true));
                     <td colspan="3"></td>
                 </tr>
                 <tr>
-                    <td style="line-height:20px;">Total Tagihan<br><i>Billing Amount</i></td>
+                    <td style="line-height:20px;">Rincian Tagihan<br><i>Billing Amount</i></td>
                     <td>:</td>
-                    <td><?=number_format($data->trx_amount,2,",",".")?></td>
+                    <td>
+                        <table style="color:#737373;font-size:13.5px;">
+                            <tr>
+                                <td>Biaya Wisuda</td>
+                                <td width="80px" align="right"><?=number_format($data->trx_amount - 2500,2,",",".")?> </td>
+                            </tr>
+                            <tr>
+                                <td>Biaya VA BNI</td>
+                                <td width="80px" align="right"><?=number_format(2500,2,",",".")?> </td>
+                            </tr>
+                            <tr>
+                                <th>Total Tagihan</th>
+                                <th width="80px" align="right"><?=number_format($data->trx_amount,2,",",".")?> </th>
+                            </tr>
+                        </table>
+
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="3"></td>

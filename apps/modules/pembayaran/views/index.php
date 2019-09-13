@@ -16,7 +16,6 @@
                     <th>Transaksi ID</th>
                     <th>Nama</th>
                     <th>Tagihan</th>
-                    <th>Pembayaran</th>
                     <th>Status</th>
                     <th>Invoice</th>
                 </tr>
@@ -28,7 +27,6 @@
                     <th>Transaksi ID</th>
                     <th>Nama</th>
                     <th>Tagihan</th>
-                    <th>Pembayaran</th>
                     <th>Status</th>
                     <th>Invoice</th>
                 </tr>
@@ -131,9 +129,9 @@
                             </div>
                             <div class="form-group m-form__group">
                                 <label for="trx_amount">
-                                    TRX Amount
-                                </label>
-                                <input type="text" name="trx_amount" class="form-control m-input" id="trx_amount" placeholder="TRX Amount" required>
+                                    Total Tagihan
+                                </label> <span style="font-size:11px;">+ 2.500 secara otomatis (Biaya VA BNI)</span>
+                                <input type="text" name="trx_amount" class="form-control m-input" id="trx_amount" placeholder="Contoh : 1450000" required>
                             </div>
                         </div>
                     <!--end::Form-->
