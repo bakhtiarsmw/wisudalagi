@@ -3,9 +3,6 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#m_modal_4" >
             Create Billing
         </button>
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#m_modal_5" >
-            Inquiry
-        </button>
     </div>
 </div>
 <input type="hidden" value="<?=site_url('pembayaran/') ?>" id="base_url_id">
@@ -15,25 +12,23 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Virtual Account</th>
-                    <th>Transaksi ID</th>
+<!--                    <th>Virtual Account</th>-->
                     <th>Nama</th>
+                    <th>Transaksi ID</th>
                     <th>Tagihan</th>
-                    <th>Waktu Pembayaran</th>
                     <th>Status</th>
-                    <th>Invoice</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
                     <th>ID</th>
-                    <th>Virtual Account</th>
-                    <th>Transaksi ID</th>
+<!--                    <th>Virtual Account</th>-->
                     <th>Nama</th>
+                    <th>Transaksi ID</th>
                     <th>Tagihan</th>
-                    <th>Waktu Pembayaran</th>
                     <th>Status</th>
-                    <th>Invoice</th>
+                    <th>Action</th>
                 </tr>
             </tfoot>
         </table>
@@ -174,18 +169,17 @@
                     <div class="m-portlet__body">
 
                         <div class="form-group m-form__group">
-                            <span>Info, Hanya bisa diupdate jika belum melakukan pembayaran dan expired</span>
                             <label for="exampleInputPassword1">
-                                TRX ID <span style="color:blue;font-size:12px;">*Press Enter After Typing TRX ID</span>
+                                TRX ID
                             </label>
                             <input type="text" name="trx_id_iq" id="iq_trx_id" class="form-control m-input" placeholder="TRX ID" required>
-                            <div class="message-response" style="font-size:11px; color:red;padding-left:20px;padding-top:10px;"></div>
+                            <div class="message-response-iq" style="font-size:11px; color:red;padding-left:20px;padding-top:10px;"></div>
                         </div>
                         <div class="form-group m-form__group">
                             <label for="exampleInputPassword1">
                                 Customer Name
                             </label>
-                            <input type="text" readonly name="customer_name_iq" id="iq_name" class="form-control m-input" readonly placeholder="Customer Name" required>
+                            <input type="text" name="customer_name_iq" id="iq_name" class="form-control m-input" readonly placeholder="Customer Name" required>
                         </div>
                         <div class="form-group m-form__group">
                             <label for="exampleInputPassword1">
@@ -209,13 +203,13 @@
                             <label for="exampleInputPassword1">
                                 Status Tagihan
                             </label>
-                            <input type="text" id="status_va" class="form-control" readonly>
+                            <input type="text" id="status_va_iq" class="form-control" readonly>
                         </div>
                         <div class="form-group m-form__group">
                             <label for="trx_amount">
                                 Total Tagihan
-                            </label> <span style="font-size:11px;">+ 2.500 secara otomatis (Biaya VA BNI)</span>
-                            <input type="text" name="trx_amount_iq" class="form-control m-input" id="iq_trx_amount" placeholder="Contoh : 1450000" required>
+                            </label> <span style="font-size:11px;">Sudah termasuk Biaya VA BNI (2.500)</span>
+                            <input type="text" name="trx_amount_iq" readonly class="form-control m-input" id="iq_trx_amount" placeholder="Contoh : 1450000" required>
                         </div>
                     </div>
                     <!--end::Form-->
@@ -223,9 +217,85 @@
                 <div class="modal-footer">
                     <span id="message-api-iq" style="font-size:12px;color:red;font-weight:bold;"></span>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                        Cancel
+                        Close
                     </button>
-                    <button type="submit" id="submitInquiry" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="m_modal_6" tabindex="-1" role="dialog" aria-labelledby="Update" aria-hidden="true">
+    <div class="modal-dialog modal-default" role="document">
+        <div class="modal-content">
+            <form class="m-form m-form--fit m-form--label-align-right" id="updateForm" method="POST" role="form" action="<?=site_url('pembayaran/put_payment');?>">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Update Billing
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            &times;
+                        </span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!--begin::Form-->
+                    <div class="m-portlet__body">
+
+                        <div class="form-group m-form__group">
+                            <label for="exampleInputPassword1">
+                                TRX ID
+                            </label>
+                            <input type="text" readonly name="trx_id_up" id="id_trx_up" class="form-control m-input" placeholder="TRX ID" required>
+                            <input type="hidden" name="id_up" id="id_up">
+                            <div class="message-response-up" style="font-size:11px; color:red;padding-left:20px;padding-top:10px;"></div>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label for="exampleInputPassword1">
+                                Customer Name
+                            </label>
+                            <input type="text" name="customer_name_up" id="up_name" class="form-control m-input" readonly placeholder="Customer Name" required>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label for="exampleInputPassword1">
+                                Customer Email
+                            </label>
+                            <input type="email" name="customer_email_up" id="up_email" class="form-control m-input" readonly placeholder="Customer Email" required>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label for="exampleInputPassword1">
+                                Customer Phone
+                            </label>
+                            <input type="text" name="customer_phone_up" id="up_phone" class="form-control m-input" placeholder="Customer Phone" required readonly>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label for="exampleInputPassword1">
+                                Virtual Account
+                            </label>
+                            <input type="text" readonly name="virtual_account_up" id="up_va" class="form-control m-input" placeholder="Virtual Account" required>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label for="exampleInputPassword1">
+                                Status Tagihan
+                            </label>
+                            <input type="text" id="status_va_up" class="form-control" readonly>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label for="trx_amount">
+                                Total Tagihan
+                            </label> <span style="font-size:11px;">+ 2.500 secara otomatis (Biaya VA BNI)</span>
+                            <input type="text" name="trx_amount_up" class="form-control m-input" id="up_trx_amount" placeholder="Contoh : 1450000" required>
+                        </div>
+                    </div>
+                    <!--end::Form-->
+                </div>
+                <div class="modal-footer">
+                    <span id="message-api-up" style="font-size:12px;color:red;font-weight:bold;"></span>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" id="updatePayment" class="btn btn-primary">
                         Update
                     </button>
                 </div>

@@ -229,18 +229,20 @@ class Pembayaran extends MX_Controller {
     }
 
     public function put_payment(){
-        $this->form_validation->set_rules('trx_id_iq','TRX ID','required');
-        $this->form_validation->set_rules('customer_name_iq','Customer Name','required');
-        $this->form_validation->set_rules('customer_email_iq','Customer Email','required');
-        $this->form_validation->set_rules('customer_phone_iq','Customer Phone','required');
-        $this->form_validation->set_rules('trx_amount_iq','TRX Amount','required');
+        $this->form_validation->set_rules('trx_id_up','TRX ID','required');
+        $this->form_validation->set_rules('id_up','ID','required');
+        $this->form_validation->set_rules('customer_name_up','Customer Name','required');
+        $this->form_validation->set_rules('customer_email_up','Customer Email','required');
+        $this->form_validation->set_rules('customer_phone_up','Customer Phone','required');
+        $this->form_validation->set_rules('trx_amount_up','TRX Amount','required');
+        $this->form_validation->set_rules('virtual_account_up','Virtual Account','required');
 
         if($this->form_validation->run() != false){
 
             date_default_timezone_set("Asia/Jakarta");
 
             $client = new GuzzleHttp\Client();
-            $tagihan = str_replace(".", "", $this->input->post('trx_amount_iq'));
+            $tagihan = str_replace(".", "", $this->input->post('trx_amount_up'));
 
 
             try {
@@ -249,13 +251,15 @@ class Pembayaran extends MX_Controller {
                     'form_params' => [
                         'type' => 'updatebilling',
                         'client_id' => '00238',
-                        'trx_id' => trim($this->input->post('trx_id_iq')),
+                        'trx_id' => trim($this->input->post('trx_id_up')),
                         'trx_amount' => trim($tagihan) + 2500,
-                        'customer_name' => trim($this->input->post('customer_name_iq')),
-                        'customer_email' => trim($this->input->post('customer_email_iq')),
-                        'customer_phone' => trim($this->input->post('customer_phone_iq')),
+                        'customer_name' => trim($this->input->post('customer_name_up')),
+                        'customer_email' => trim($this->input->post('customer_email_up')),
+                        'customer_phone' => trim($this->input->post('customer_phone_up')),
                         'datetime_expired_iso8601' => date("c", strtotime(date('Y-m-d H:i:s'). ' + 2 days')),
                         'access_key' => 'latansa876',
+                        'id' => trim($this->input->post('id_up')),
+                        'virtual_account' => trim($this->input->post('virtual_account_up')),
                     ]
                 ]);
                 $hand = $responseSource->getBody()->getContents();
