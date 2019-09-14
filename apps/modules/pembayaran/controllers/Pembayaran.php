@@ -49,10 +49,41 @@ class Pembayaran extends MX_Controller {
         }
     }
 
+    public function get_data_inquiry($trx_id){
+        try {
+            $client = new GuzzleHttp\Client();
+            $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda/inquiry',
+                [
+                    'auth' => ['rofickachmad', 'latansa876'],
+                    'query' => ['type' => 'inquirybilling', 'client_id' => '00238', 'trx_id' => $trx_id, 'access_key' => 'latansa876']
+                ])->getBody()->getContents();
+
+            $jsonResource = json_decode($response);
+
+            $response = array(
+                'status' =>  $jsonResource->status,
+                'message' => $jsonResource->data,
+            );
+        }catch (\GuzzleHttp\Exception\ClientException $e) {
+
+            $hand = $e->getResponse()->getBody()->getContents();
+            $dataJson = json_decode($hand);
+            $response = array(
+                'status' =>  $dataJson->status,
+                'message' => $dataJson->message,
+            );
+
+        }
+
+        header("Content-type: application/json; charset=utf-8");
+        echo json_encode($response);
+
+    }
+
     public function get_inquiry($trx_id){
         try {
             $client = new GuzzleHttp\Client();
-            $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda/inquiry',
+            $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda/inquiry',
                 [
                     'auth' => ['rofickachmad', 'latansa876'],
                     'query' => ['type' => 'inquirybilling', 'client_id' => '00238', 'trx_id' => $trx_id, 'access_key' => 'latansa876']
@@ -80,7 +111,7 @@ class Pembayaran extends MX_Controller {
     }
     public function get_list_va(){
         $client = new GuzzleHttp\Client();
-        $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda',
+        $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda',
             [
                 'auth' => ['rofickachmad', 'latansa876'],
                 'query' => ['access_key' => 'latansa876']
@@ -95,7 +126,7 @@ class Pembayaran extends MX_Controller {
     public function get_trxId($tahun, $periode, $jenis){
         $periode = $tahun.$periode;
         $client = new GuzzleHttp\Client();
-        $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda/trxId',
+        $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda/trxId',
             [
                 'auth' => ['rofickachmad', 'latansa876'],
                 'query' => ['access_key' => 'latansa876', 'periode' => $periode, 'jenis' => $jenis]
@@ -110,7 +141,7 @@ class Pembayaran extends MX_Controller {
     public function get_va_byNim(){
         $getNim = trim($this->input->post('nim'));
         $client = new GuzzleHttp\Client();
-        $response = $client->get('https://payment.unmer.ac.id/public/api/wisuda/getVA',
+        $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda/getVA',
             [
                 'auth' => ['rofickachmad', 'latansa876'],
                 'query' => ['access_key' => 'latansa876', 'nim' => $getNim],
@@ -144,28 +175,12 @@ class Pembayaran extends MX_Controller {
 
             $trx_json = $this->get_trxId($tahun, $periode, $jenis);
             $id = json_decode($trx_json);
-
-//            $payment = array(
-//                'type' => 'createbilling',
-//                'client_id' => '00238',
-//                'trx_id' => $id[0]->TrxId,
-//                'trx_amount' => trim($this->input->post('trx_amount')),
-//                'billing_type' => 'c',
-//                'customer_name' => trim($this->input->post('customer_name')),
-//                'customer_email' => trim($this->input->post('customer_email')),
-//                'customer_phone' => trim($this->input->post('customer_phone')),
-//                'virtual_account' => trim($this->input->post('virtual_account')),
-//                'datetime_expired_iso8601' => date("c", strtotime(date('Y-m-d H:i:s'). ' + 2 days')),
-//                'va_status' => 1,
-//                'access_key' => 'latansa876',
-//            );
-
             $client = new GuzzleHttp\Client();
             $tagihan = str_replace(".", "", $this->input->post('trx_amount'));
 
 
             try {
-                $responseSource = $client->request('POST', 'https://payment.unmer.ac.id/api/wisuda', [
+                $responseSource = $client->request('POST', 'https://payment.unmer.ac.id/api/DevWisuda', [
                     'auth' => ['rofickachmad', 'latansa876'],
                     'form_params' => [
                         'type' => 'createbilling',
@@ -179,6 +194,67 @@ class Pembayaran extends MX_Controller {
                         'virtual_account' => trim($this->input->post('virtual_account')),
                         'datetime_expired_iso8601' => date("c", strtotime(date('Y-m-d H:i:s'). ' + 2 days')),
                         'va_status' => 1,
+                        'access_key' => 'latansa876',
+                    ]
+                ]);
+                $hand = $responseSource->getBody()->getContents();
+                $dataJson = json_decode($hand);
+                $response = array(
+                    'status' =>  $dataJson->status,
+                    'message' => $dataJson->message,
+                );
+            } catch (\GuzzleHttp\Exception\ClientException $e) {
+
+                $hand = $e->getResponse()->getBody()->getContents();
+                $dataJson = json_decode($hand);
+                $response = array(
+                    'status' =>  $dataJson->status,
+                    'message' => $dataJson->message,
+                );
+            }
+
+
+
+
+        }else{
+            $response = array(
+                'status' => 'error',
+                'message' => validation_errors()
+            );
+        }
+
+        echo json_encode($response);
+        header("Content-type: application/json; charset=utf-8");
+
+    }
+
+    public function put_payment(){
+        $this->form_validation->set_rules('trx_id_iq','TRX ID','required');
+        $this->form_validation->set_rules('customer_name_iq','Customer Name','required');
+        $this->form_validation->set_rules('customer_email_iq','Customer Email','required');
+        $this->form_validation->set_rules('customer_phone_iq','Customer Phone','required');
+        $this->form_validation->set_rules('trx_amount_iq','TRX Amount','required');
+
+        if($this->form_validation->run() != false){
+
+            date_default_timezone_set("Asia/Jakarta");
+
+            $client = new GuzzleHttp\Client();
+            $tagihan = str_replace(".", "", $this->input->post('trx_amount_iq'));
+
+
+            try {
+                $responseSource = $client->request('PUT', 'https://payment.unmer.ac.id/api/DevWisuda', [
+                    'auth' => ['rofickachmad', 'latansa876'],
+                    'form_params' => [
+                        'type' => 'updatebilling',
+                        'client_id' => '00238',
+                        'trx_id' => trim($this->input->post('trx_id_iq')),
+                        'trx_amount' => trim($tagihan) + 2500,
+                        'customer_name' => trim($this->input->post('customer_name_iq')),
+                        'customer_email' => trim($this->input->post('customer_email_iq')),
+                        'customer_phone' => trim($this->input->post('customer_phone_iq')),
+                        'datetime_expired_iso8601' => date("c", strtotime(date('Y-m-d H:i:s'). ' + 2 days')),
                         'access_key' => 'latansa876',
                     ]
                 ]);

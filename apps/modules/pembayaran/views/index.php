@@ -3,6 +3,9 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#m_modal_4" >
             Create Billing
         </button>
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#m_modal_5" >
+            Inquiry
+        </button>
     </div>
 </div>
 <input type="hidden" value="<?=site_url('pembayaran/') ?>" id="base_url_id">
@@ -16,6 +19,7 @@
                     <th>Transaksi ID</th>
                     <th>Nama</th>
                     <th>Tagihan</th>
+                    <th>Waktu Pembayaran</th>
                     <th>Status</th>
                     <th>Invoice</th>
                 </tr>
@@ -27,6 +31,7 @@
                     <th>Transaksi ID</th>
                     <th>Nama</th>
                     <th>Tagihan</th>
+                    <th>Waktu Pembayaran</th>
                     <th>Status</th>
                     <th>Invoice</th>
                 </tr>
@@ -37,7 +42,7 @@
 
 <!--Test Gitraken-->
 
-<div class="modal fade" id="m_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="m_modal_4" tabindex="-1" role="dialog" aria-labelledby="CreateBilling" aria-hidden="true">
     <div class="modal-dialog modal-default" role="document">
         <div class="modal-content">
             <form class="m-form m-form--fit m-form--label-align-right" id="paymentForm" method="POST" role="form" action="<?=site_url('pembayaran/post_payment');?>">
@@ -143,6 +148,85 @@
                     </button>
                     <button type="submit" id="submitPayment" class="btn btn-primary">
                         Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="m_modal_5" tabindex="-1" role="dialog" aria-labelledby="Inquery" aria-hidden="true">
+    <div class="modal-dialog modal-default" role="document">
+        <div class="modal-content">
+            <form class="m-form m-form--fit m-form--label-align-right" id="inquiryForm" method="POST" role="form" action="<?=site_url('pembayaran/put_payment');?>">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Inquiry
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            &times;
+                        </span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!--begin::Form-->
+                    <div class="m-portlet__body">
+
+                        <div class="form-group m-form__group">
+                            <span>Info, Hanya bisa diupdate jika belum melakukan pembayaran dan expired</span>
+                            <label for="exampleInputPassword1">
+                                TRX ID <span style="color:blue;font-size:12px;">*Press Enter After Typing TRX ID</span>
+                            </label>
+                            <input type="text" name="trx_id_iq" id="iq_trx_id" class="form-control m-input" placeholder="TRX ID" required>
+                            <div class="message-response" style="font-size:11px; color:red;padding-left:20px;padding-top:10px;"></div>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label for="exampleInputPassword1">
+                                Customer Name
+                            </label>
+                            <input type="text" readonly name="customer_name_iq" id="iq_name" class="form-control m-input" readonly placeholder="Customer Name" required>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label for="exampleInputPassword1">
+                                Customer Email
+                            </label>
+                            <input type="email" name="customer_email_iq" id="iq_email" class="form-control m-input" readonly placeholder="Customer Email" required>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label for="exampleInputPassword1">
+                                Customer Phone
+                            </label>
+                            <input type="text" name="customer_phone_iq" id="iq_phone" class="form-control m-input" placeholder="Customer Phone" required readonly>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label for="exampleInputPassword1">
+                                Virtual Account
+                            </label>
+                            <input type="text" readonly name="virtual_account_iq" id="iq_va" class="form-control m-input" placeholder="Virtual Account" required>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label for="exampleInputPassword1">
+                                Status Tagihan
+                            </label>
+                            <input type="text" id="status_va" class="form-control" readonly>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label for="trx_amount">
+                                Total Tagihan
+                            </label> <span style="font-size:11px;">+ 2.500 secara otomatis (Biaya VA BNI)</span>
+                            <input type="text" name="trx_amount_iq" class="form-control m-input" id="iq_trx_amount" placeholder="Contoh : 1450000" required>
+                        </div>
+                    </div>
+                    <!--end::Form-->
+                </div>
+                <div class="modal-footer">
+                    <span id="message-api-iq" style="font-size:12px;color:red;font-weight:bold;"></span>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="submit" id="submitInquiry" class="btn btn-primary">
+                        Update
                     </button>
                 </div>
             </form>
