@@ -118,11 +118,47 @@ class Pembayaran extends MX_Controller {
             ])->getBody()->getContents();
 
         $jsonResource = json_decode($response);
+
+        $get_trx = array();
+        foreach($jsonResource->data as $key => $value) {
+
+                $responseInq = $client->get('https://payment.unmer.ac.id/api/DevWisuda/inquiry',
+                    [
+                        'auth' => ['rofickachmad', 'latansa876'],
+                        'query' => ['type' => 'inquirybilling', 'client_id' => '00238', 'trx_id' => $value->trx_id, 'access_key' => 'latansa876']
+                    ])->getBody()->getContents();
+                $jsonResourceInq = json_decode($responseInq);
+                $get_trx[$key]['id'] = $value->id;
+                $get_trx[$key]['customer_name'] = $value->customer_name;
+                $get_trx[$key]['trx_id'] = $value->trx_id;
+                $get_trx[$key]['trx_amount'] = $value->trx_amount;
+                $get_trx[$key]['trx_amount'] = $value->trx_amount;
+                $get_trx[$key]['datetime_expired'] = $jsonResourceInq->data->datetime_expired;
+                $get_trx[$key]['va_status'] = $value->va_status;
+        }
+
         header("Content-type: application/json; charset=utf-8");
 
-        echo json_encode($jsonResource->data);
+        echo json_encode($get_trx);
 
     }
+
+
+
+//    public function get_list_va(){
+//        $client = new GuzzleHttp\Client();
+//        $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda',
+//            [
+//                'auth' => ['rofickachmad', 'latansa876'],
+//                'query' => ['access_key' => 'latansa876']
+//            ])->getBody()->getContents();
+//
+//        $jsonResource = json_decode($response);
+//        header("Content-type: application/json; charset=utf-8");
+//
+//        echo json_encode($jsonResource->data);
+//
+//    }
     public function get_trxId($tahun, $periode, $jenis){
         $periode = $tahun.$periode;
         $client = new GuzzleHttp\Client();

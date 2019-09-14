@@ -16,6 +16,7 @@
                     <th>Nama</th>
                     <th>Transaksi ID</th>
                     <th>Tagihan</th>
+                    <th>Expired</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -27,6 +28,7 @@
                     <th>Nama</th>
                     <th>Transaksi ID</th>
                     <th>Tagihan</th>
+                    <th>Expired</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
