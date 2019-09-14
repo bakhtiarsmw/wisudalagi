@@ -748,7 +748,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="<?=base_url('../assets/vendors/base/vendors.bundle.js')?>" type="text/javascript"></script>
 <script src="<?=base_url('../assets/demo/default/base/scripts.bundle.js')?>" type="text/javascript"></script>
 
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
 
 <!--end::Base Scripts -->
 <!--begin::Page Vendors -->
@@ -760,7 +760,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--end::Page Snippets -->
 
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+<!-- <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script> -->
 <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
 </body>
