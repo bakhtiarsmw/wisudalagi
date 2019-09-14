@@ -12,7 +12,6 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                   <th>Virtual Account</th>
                     <th>Nama</th>
                     <th>Transaksi ID</th>
                     <th>Tagihan</th>
@@ -24,7 +23,6 @@
             <tfoot>
                 <tr>
                     <th>ID</th>
-                   <th>Virtual Account</th>
                     <th>Nama</th>
                     <th>Transaksi ID</th>
                     <th>Tagihan</th>
