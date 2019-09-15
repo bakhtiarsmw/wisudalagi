@@ -106,9 +106,19 @@ class Pembayaran extends MX_Controller {
 
         }
 
+        $dataLog = array(
+            'username_log' => $this->session->userdata('username'),
+            'user_id' => $this->session->userdata('user_id'),
+            'activity' => 'Open Invoice With TRX ID'. $trx_id,
+            'log_at' =>  date("Y-m-d H:i:s"),
+        );
+        $this->m_pembayaran->input_log($dataLog, 'log');
+
+
         $this->load->view('invoice', $response);
 
     }
+
     public function get_list_va(){
         $client = new GuzzleHttp\Client();
         $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda',
@@ -118,47 +128,12 @@ class Pembayaran extends MX_Controller {
             ])->getBody()->getContents();
 
         $jsonResource = json_decode($response);
-
-        $get_trx = array();
-        foreach($jsonResource->data as $key => $value) {
-
-                $responseInq = $client->get('https://payment.unmer.ac.id/api/DevWisuda/inquiry',
-                    [
-                        'auth' => ['rofickachmad', 'latansa876'],
-                        'query' => ['type' => 'inquirybilling', 'client_id' => '00238', 'trx_id' => $value->trx_id, 'access_key' => 'latansa876']
-                    ])->getBody()->getContents();
-                $jsonResourceInq = json_decode($responseInq);
-                $get_trx[$key]['id'] = $value->id;
-                $get_trx[$key]['customer_name'] = $value->customer_name;
-                $get_trx[$key]['trx_id'] = $value->trx_id;
-                $get_trx[$key]['trx_amount'] = $value->trx_amount;
-                $get_trx[$key]['trx_amount'] = $value->trx_amount;
-                $get_trx[$key]['datetime_expired'] = $jsonResourceInq->data->datetime_expired;
-                $get_trx[$key]['va_status'] = $value->va_status;
-        }
-
         header("Content-type: application/json; charset=utf-8");
 
-        echo json_encode($get_trx);
+        echo json_encode($jsonResource->data);
 
     }
 
-
-
-//    public function get_list_va(){
-//        $client = new GuzzleHttp\Client();
-//        $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda',
-//            [
-//                'auth' => ['rofickachmad', 'latansa876'],
-//                'query' => ['access_key' => 'latansa876']
-//            ])->getBody()->getContents();
-//
-//        $jsonResource = json_decode($response);
-//        header("Content-type: application/json; charset=utf-8");
-//
-//        echo json_encode($jsonResource->data);
-//
-//    }
     public function get_trxId($tahun, $periode, $jenis){
         $periode = $tahun.$periode;
         $client = new GuzzleHttp\Client();
@@ -228,17 +203,40 @@ class Pembayaran extends MX_Controller {
                         'customer_email' => trim($this->input->post('customer_email')),
                         'customer_phone' => trim($this->input->post('customer_phone')),
                         'virtual_account' => trim($this->input->post('virtual_account')),
-                        'datetime_expired_iso8601' => date("c", strtotime(date('Y-m-d H:i:s'). ' + 2 days')),
+                        'datetime_expired' => date("c", time() + 604800),
                         'va_status' => 1,
                         'access_key' => 'latansa876',
                     ]
                 ]);
+
                 $hand = $responseSource->getBody()->getContents();
                 $dataJson = json_decode($hand);
+                $dataLog = array(
+                    'username_log' => $this->session->userdata('username'),
+                    'user_id' => $this->session->userdata('user_id'),
+                    'activity' => 'Create Billing, Create TRX ID '. $id[0]->TrxId,
+                    'log_at' =>  date("Y-m-d H:i:s"),
+                );
+                $this->m_pembayaran->input_log($dataLog, 'log');
                 $response = array(
                     'status' =>  $dataJson->status,
                     'message' => $dataJson->message,
                 );
+
+                $responseEmail = $client->get('https://payment.unmer.ac.id/api/DevWisuda/inquiry',[
+                        'auth' => ['rofickachmad', 'latansa876'],
+                        'query' => ['type' => 'inquirybilling', 'client_id' => '00238', 'trx_id' => $id[0]->TrxId, 'access_key' => 'latansa876']
+                    ])->getBody()->getContents();
+
+                $jsonResourceEmail = json_decode($responseEmail);
+
+                $responseEmail = array(
+                    'status' =>  $jsonResourceEmail->status,
+                    'message' => $jsonResourceEmail->data,
+                );
+
+                $this->sendEmailInvoice($responseEmail, trim($this->input->post('customer_email')), trim($this->input->post('customer_name')));
+
             } catch (\GuzzleHttp\Exception\ClientException $e) {
 
                 $hand = $e->getResponse()->getBody()->getContents();
@@ -248,9 +246,6 @@ class Pembayaran extends MX_Controller {
                     'message' => $dataJson->message,
                 );
             }
-
-
-
 
         }else{
             $response = array(
@@ -279,7 +274,7 @@ class Pembayaran extends MX_Controller {
 
             $client = new GuzzleHttp\Client();
             $tagihan = str_replace(".", "", $this->input->post('trx_amount_up'));
-
+            $totalTagihan = trim($tagihan) + 2500;
 
             try {
                 $responseSource = $client->request('PUT', 'https://payment.unmer.ac.id/api/DevWisuda', [
@@ -292,7 +287,7 @@ class Pembayaran extends MX_Controller {
                         'customer_name' => trim($this->input->post('customer_name_up')),
                         'customer_email' => trim($this->input->post('customer_email_up')),
                         'customer_phone' => trim($this->input->post('customer_phone_up')),
-                        'datetime_expired_iso8601' => date("c", strtotime(date('Y-m-d H:i:s'). ' + 2 days')),
+                        'datetime_expired' => date("c", time() + 604800),
                         'access_key' => 'latansa876',
                         'id' => trim($this->input->post('id_up')),
                         'virtual_account' => trim($this->input->post('virtual_account_up')),
@@ -300,23 +295,43 @@ class Pembayaran extends MX_Controller {
                 ]);
                 $hand = $responseSource->getBody()->getContents();
                 $dataJson = json_decode($hand);
+
+                $dataLog = array(
+                    'username_log' => $this->session->userdata('username'),
+                    'user_id' => $this->session->userdata('user_id'),
+                    'activity' => 'Update Billing (Trx_Amount) to '. $totalTagihan .' with TRX ID'. trim($this->input->post('trx_id_up')),
+                    'log_at' =>  date("Y-m-d H:i:s"),
+                );
+                $this->m_pembayaran->input_log($dataLog, 'log');
+
                 $response = array(
                     'status' =>  $dataJson->status,
                     'message' => $dataJson->message,
                 );
+
+                $responseEmail = $client->get('https://payment.unmer.ac.id/api/DevWisuda/inquiry',[
+                    'auth' => ['rofickachmad', 'latansa876'],
+                    'query' => ['type' => 'inquirybilling', 'client_id' => '00238', 'trx_id' => $this->input->post('trx_id_up'), 'access_key' => 'latansa876']
+                ])->getBody()->getContents();
+
+                $jsonResourceEmail = json_decode($responseEmail);
+
+                $responseEmail = array(
+                    'status' =>  $jsonResourceEmail->status,
+                    'message' => $jsonResourceEmail->data,
+                );
+
+                $this->sendEmailUpdate($responseEmail, trim($this->input->post('customer_email_up')), trim($this->input->post('customer_name_up')));
+
             } catch (\GuzzleHttp\Exception\ClientException $e) {
 
                 $hand = $e->getResponse()->getBody()->getContents();
                 $dataJson = json_decode($hand);
-                $response = array(
+                $response = array(D
                     'status' =>  $dataJson->status,
                     'message' => $dataJson->message,
                 );
             }
-
-
-
-
         }else{
             $response = array(
                 'status' => 'error',
@@ -327,6 +342,63 @@ class Pembayaran extends MX_Controller {
         echo json_encode($response);
         header("Content-type: application/json; charset=utf-8");
 
+    }
+
+
+    public function sendEmailInvoice($response, $emailTo, $name){
+        $this->load->library('email');
+        $config = Array(
+            'protocol'  => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'dev.fti@unmer.ac.id', // change it to yours
+            'smtp_pass' => 'Di3ng#ft1@2019', // change it to yours
+            'mailtype'  => 'html',
+            'charset'   => 'utf-8',
+        );
+
+
+        $this->email->initialize($config);
+        $this->email->set_mailtype("html");
+        $this->email->set_newline("\r\n");
+
+        $htmlContent = $this->load->view('email_invoice',$response,true);
+
+        $this->email->to($emailTo);
+        $this->email->from('dev.fti@unmer.ac.id','FTI - UNMER MALANG');
+        $this->email->subject('Tagihan Pembayaran Wisuda Kepada '.$name);
+        $this->email->message($htmlContent);
+        $this->email->send();
+
+        return true;
+    }
+
+    public function sendEmailUpdate($response, $emailTo, $name){
+        $this->load->library('email');
+        $config = Array(
+            'protocol'  => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'dev.fti@unmer.ac.id', // change it to yours
+            'smtp_pass' => 'Di3ng#ft1@2019', // change it to yours
+            'mailtype'  => 'html',
+            'charset'   => 'utf-8',
+        );
+
+
+        $this->email->initialize($config);
+        $this->email->set_mailtype("html");
+        $this->email->set_newline("\r\n");
+
+        $htmlContent = $this->load->view('email_update',$response,true);
+
+        $this->email->to($emailTo);
+        $this->email->from('dev.fti@unmer.ac.id','FTI - UNMER MALANG');
+        $this->email->subject('Perubahan Jumlah Tagihan - '.$name);
+        $this->email->message($htmlContent);
+        $this->email->send();
+
+        return true;
     }
 
 

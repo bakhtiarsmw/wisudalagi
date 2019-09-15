@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col-md-12" style="padding:20px 50px;">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#m_modal_4" >
+        <span id="message-batas-pembayaran"></span>
+        <button type="button" class="btn btn-primary" id="create_billing" data-toggle="modal" data-target="#m_modal_4" >
             Create Billing
         </button>
     </div>

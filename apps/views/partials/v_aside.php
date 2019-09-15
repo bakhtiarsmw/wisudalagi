@@ -9,11 +9,6 @@
                         <span class="m-menu__link-text">
                             Dashboard
                         </span>
-                        <span class="m-menu__link-badge">
-                            <span class="m-badge m-badge--danger">
-                                2
-                            </span>
-                        </span>
                     </span>
                 </span>
             </a>
@@ -25,18 +20,6 @@
                     <span class="m-menu__link-wrap">
                         <span class="m-menu__link-text">
                             Pembayaran
-                        </span>
-                    </span>
-                </span>
-            </a>
-        </li>
-        <li class="m-menu__item  m-menu__item--active" aria-haspopup="true" >
-            <a  href="<?=base_url('setting')?>" class="m-menu__link ">
-                <i class="m-menu__link-icon flaticon-user-settings"></i>
-                <span class="m-menu__link-title">
-                    <span class="m-menu__link-wrap">
-                        <span class="m-menu__link-text">
-                            Setting
                         </span>
                     </span>
                 </span>

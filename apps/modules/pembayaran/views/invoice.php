@@ -11,7 +11,7 @@ $data = json_decode(json_encode($message,true));
 <div class="wrapper-layout" style="width:595px;height:842px;border:solid 1px #E4E4E4;padding:0;">
     <div class="logo-bni" style="width:100%;background:#F8F8F8;height:auto;">
         <div class="img-bni" style="padding:20px;border-bottom:solid 1px #E4E4E4;">
-            <img src="<?=base_url('../assets/img/logo-unmer.png')?>" style="width:300px;">
+            <img src="<?=base_url('../assets/img/uner.png')?>" style="width:300px;">
         </div>
     </div>
     <div class="content-layout">
