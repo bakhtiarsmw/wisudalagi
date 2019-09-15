@@ -327,7 +327,7 @@ class Pembayaran extends MX_Controller {
 
                 $hand = $e->getResponse()->getBody()->getContents();
                 $dataJson = json_decode($hand);
-                $response = array(D
+                $response = array(
                     'status' =>  $dataJson->status,
                     'message' => $dataJson->message,
                 );
