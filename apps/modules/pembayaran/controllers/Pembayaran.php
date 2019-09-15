@@ -228,7 +228,7 @@ class Pembayaran extends MX_Controller {
                         'customer_email' => trim($this->input->post('customer_email')),
                         'customer_phone' => trim($this->input->post('customer_phone')),
                         'virtual_account' => trim($this->input->post('virtual_account')),
-                        'datetime_expired_iso8601' => date("c", strtotime(date('Y-m-d H:i:s'). ' + 2 days')),
+                        'datetime_expired' => date('c', time() + 2 * 3600), // Expired 2 hours
                         'va_status' => 1,
                         'access_key' => 'latansa876',
                     ]
@@ -292,7 +292,7 @@ class Pembayaran extends MX_Controller {
                         'customer_name' => trim($this->input->post('customer_name_up')),
                         'customer_email' => trim($this->input->post('customer_email_up')),
                         'customer_phone' => trim($this->input->post('customer_phone_up')),
-                        'datetime_expired_iso8601' => date("c", strtotime(date('Y-m-d H:i:s'). ' + 2 days')),
+                        'datetime_expired' => date('c', time() + 2 * 3600), //expired 2 hours
                         'access_key' => 'latansa876',
                         'id' => trim($this->input->post('id_up')),
                         'virtual_account' => trim($this->input->post('virtual_account_up')),
