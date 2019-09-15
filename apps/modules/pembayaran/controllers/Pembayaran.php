@@ -52,10 +52,10 @@ class Pembayaran extends MX_Controller {
     public function get_data_inquiry($trx_id){
         try {
             $client = new GuzzleHttp\Client();
-            $response = $client->get('https://payment.unmer.ac.id/api/wisuda/inquiry',
+            $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda/inquiry',
                 [
                     'auth' => ['rofickachmad', 'latansa876'],
-                    'query' => ['type' => 'inquirybilling', 'client_id' => '00317', 'trx_id' => $trx_id, 'access_key' => 'latansa876']
+                    'query' => ['type' => 'inquirybilling', 'client_id' => '00238', 'trx_id' => $trx_id, 'access_key' => 'latansa876']
                 ])->getBody()->getContents();
 
             $jsonResource = json_decode($response);
@@ -83,10 +83,10 @@ class Pembayaran extends MX_Controller {
     public function get_inquiry($trx_id){
         try {
             $client = new GuzzleHttp\Client();
-            $response = $client->get('https://payment.unmer.ac.id/api/wisuda/inquiry',
+            $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda/inquiry',
                 [
                     'auth' => ['rofickachmad', 'latansa876'],
-                    'query' => ['type' => 'inquirybilling', 'client_id' => '00317', 'trx_id' => $trx_id, 'access_key' => 'latansa876']
+                    'query' => ['type' => 'inquirybilling', 'client_id' => '00238', 'trx_id' => $trx_id, 'access_key' => 'latansa876']
                 ])->getBody()->getContents();
 
             $jsonResource = json_decode($response);
@@ -121,7 +121,7 @@ class Pembayaran extends MX_Controller {
 
     public function get_list_va(){
         $client = new GuzzleHttp\Client();
-        $response = $client->get('https://payment.unmer.ac.id/api/wisuda',
+        $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda',
             [
                 'auth' => ['rofickachmad', 'latansa876'],
                 'query' => ['access_key' => 'latansa876']
@@ -137,7 +137,7 @@ class Pembayaran extends MX_Controller {
     public function get_trxId($tahun, $periode, $jenis){
         $periode = $tahun.$periode;
         $client = new GuzzleHttp\Client();
-        $response = $client->get('https://payment.unmer.ac.id/api/wisuda/trxId',
+        $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda/trxId',
             [
                 'auth' => ['rofickachmad', 'latansa876'],
                 'query' => ['access_key' => 'latansa876', 'periode' => $periode, 'jenis' => $jenis]
@@ -152,7 +152,7 @@ class Pembayaran extends MX_Controller {
     public function get_va_byNim(){
         $getNim = trim($this->input->post('nim'));
         $client = new GuzzleHttp\Client();
-        $response = $client->get('https://payment.unmer.ac.id/api/wisuda/getVA',
+        $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda/getVA',
             [
                 'auth' => ['rofickachmad', 'latansa876'],
                 'query' => ['access_key' => 'latansa876', 'nim' => $getNim],
@@ -191,11 +191,11 @@ class Pembayaran extends MX_Controller {
 
 
             try {
-                $responseSource = $client->request('POST', 'https://payment.unmer.ac.id/api/wisuda', [
+                $responseSource = $client->request('POST', 'https://payment.unmer.ac.id/api/DevWisuda', [
                     'auth' => ['rofickachmad', 'latansa876'],
                     'form_params' => [
                         'type' => 'createbilling',
-                        'client_id' => '00317',
+                        'client_id' => '00238',
                         'trx_id' => $id[0]->TrxId,
                         'trx_amount' => trim($tagihan) + 2500,
                         'billing_type' => 'c',
@@ -223,9 +223,9 @@ class Pembayaran extends MX_Controller {
                     'message' => $dataJson->message,
                 );
 
-                $responseEmail = $client->get('https://payment.unmer.ac.id/api/wisuda/inquiry',[
+                $responseEmail = $client->get('https://payment.unmer.ac.id/api/DevWisuda/inquiry',[
                         'auth' => ['rofickachmad', 'latansa876'],
-                        'query' => ['type' => 'inquirybilling', 'client_id' => '00317', 'trx_id' => $id[0]->TrxId, 'access_key' => 'latansa876']
+                        'query' => ['type' => 'inquirybilling', 'client_id' => '00238', 'trx_id' => $id[0]->TrxId, 'access_key' => 'latansa876']
                     ])->getBody()->getContents();
 
                 $jsonResourceEmail = json_decode($responseEmail);
@@ -277,11 +277,11 @@ class Pembayaran extends MX_Controller {
             $totalTagihan = trim($tagihan) + 2500;
 
             try {
-                $responseSource = $client->request('PUT', 'https://payment.unmer.ac.id/api/wisuda', [
+                $responseSource = $client->request('PUT', 'https://payment.unmer.ac.id/api/DevWisuda', [
                     'auth' => ['rofickachmad', 'latansa876'],
                     'form_params' => [
                         'type' => 'updatebilling',
-                        'client_id' => '00317',
+                        'client_id' => '00238',
                         'trx_id' => trim($this->input->post('trx_id_up')),
                         'trx_amount' => trim($tagihan) + 2500,
                         'customer_name' => trim($this->input->post('customer_name_up')),
@@ -309,9 +309,9 @@ class Pembayaran extends MX_Controller {
                     'message' => $dataJson->message,
                 );
 
-                $responseEmail = $client->get('https://payment.unmer.ac.id/api/wisuda/inquiry',[
+                $responseEmail = $client->get('https://payment.unmer.ac.id/api/DevWisuda/inquiry',[
                     'auth' => ['rofickachmad', 'latansa876'],
-                    'query' => ['type' => 'inquirybilling', 'client_id' => '00317', 'trx_id' => $this->input->post('trx_id_up'), 'access_key' => 'latansa876']
+                    'query' => ['type' => 'inquirybilling', 'client_id' => '00238', 'trx_id' => $this->input->post('trx_id_up'), 'access_key' => 'latansa876']
                 ])->getBody()->getContents();
 
                 $jsonResourceEmail = json_decode($responseEmail);
