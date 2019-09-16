@@ -22,7 +22,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--begin::Web font -->
-    <script src="<?=base_url('../public/assets/vendors/webfontloader.js')?>"></script>
+    <script src="<?=base_url('../assets/vendors/webfontloader.js')?>"></script>
     <script>
         WebFont.load({
             google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
@@ -52,6 +52,14 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css" rel="stylesheet">
 
+    <style>
+        a:hover{
+            text-decoration: none !important;
+        }
+        .card-link:hover{
+            background: red;
+        }
+    </style>
 </head>
 <!-- end::Head -->
 <!-- end::Body -->
@@ -95,13 +103,6 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="m-container m-container--fluid m-container--full-height m-page__container">
             <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
                 <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
-
-                    <span class="m-footer__copyright">
-                        2019 &copy; UNMER
-                        <a href="#" class="m-link">
-                            FTI
-                        </a>
-                    </span>
 
                     <span class="m-footer__copyright">
                         2019 &copy; UNMER

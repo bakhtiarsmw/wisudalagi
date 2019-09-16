@@ -192,8 +192,8 @@ $(document).ready(function() {
     }
 
 
-    var pathArray = window.location.pathname.split( '/' );
-        var pathPage = pathArray[3];
+
+        var pathPage = $("#uri-name").val();
 
         if(pathPage==='pembayaran'){
             callAjax();

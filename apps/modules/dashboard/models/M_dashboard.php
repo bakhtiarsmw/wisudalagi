@@ -8,6 +8,9 @@ class M_dashboard extends CI_Model{
     function show_data(){
         return $this->db->get('users');
     }
+    function show_log(){
+        return $this->db->order_by('log_at','desc')->get('log');
+    }
 
 //    function show_data_db2(){
 //        return $this->db2->get('users');

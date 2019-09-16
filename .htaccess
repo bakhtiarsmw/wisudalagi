@@ -1,30 +1,11 @@
+<IfModule mod_rewrite.c> 
+    <IfModule mod_negotiation.c> 
+        Options -MultiViews 
+    </IfModule> 
+RewriteEngine On 
 
-# public_html/.htaccess
 
-#<IfModule mod_rewrite.c>
- #   <IfModule mod_negotiation.c>
-  #      Options -MultiViews
-   # </IfModule>
-
-#    RewriteEngine On
-
-    # Redirect All Requests To The Subfolder
-#    RewriteRule ^ /public
-
-#</IfModule>
-
-RewriteEngine On
-RewriteBase /codeigniter/
-
-RewriteRule ^\.htaccess$ - [F]
-
-RewriteCond %{REQUEST_URI} ^/codeigniter/?$
-RewriteRule ^.*$ public/index.php [NC,L]
-
-RewriteCond %{REQUEST_URI} !^/codeigniter/public/.*$
-RewriteRule ^(.*)$ public/$1
-
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^ - [NC,L]
-
-RewriteRule ^public/.*$ public/index.php [NC,L]
+    # Redirect All Requests To The Subfolder 
+    RewriteRule ^ /public 
+ 
+</IfModule>

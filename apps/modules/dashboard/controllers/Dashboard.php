@@ -41,7 +41,7 @@ class Dashboard extends MX_Controller {
             redirect('auth/login', 'refresh');
         }else {
             $data['users'] = $this->m_dashboard->show_data()->result();
-//            $data['users_db2'] = $this->m_dashboard->show_data_db2()->result();
+            $data['log'] = $this->m_dashboard->show_log()->result();
             $this->template->set_layout('v_frontend');
             $this->template->set_partial('header', 'partials/v_header');
             $this->template->set_partial('aside', 'partials/v_aside');
