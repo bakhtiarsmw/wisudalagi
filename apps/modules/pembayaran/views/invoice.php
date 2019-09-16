@@ -109,7 +109,7 @@ $data = json_decode(json_encode($message,true));
                 <tr>
                     <td style="line-height:20px;">Status<br><i>Status</i></td>
                     <td>:</td>
-                    <td style="color:red;">Belum Lunas (Tagihan)</td>
+                    <td><?php if($data->va_status == 1){ echo "<span style='color:red'>Belum Lunas (Tagihan)</span>"; }else{ echo "<span style='color:green'>Lunas</span>"; }?></td>
                 </tr>
             </table>
         </div>
