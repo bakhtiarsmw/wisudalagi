@@ -123,6 +123,7 @@ class Pembayaran extends MX_Controller {
         $client = new GuzzleHttp\Client();
         $response = $client->get('https://payment.unmer.ac.id/api/DevWisuda',
             [
+                'defaults' => ['verify' => false],
                 'auth' => ['rofickachmad', 'latansa876'],
                 'query' => ['access_key' => 'latansa876']
             ])->getBody()->getContents();
