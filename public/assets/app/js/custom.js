@@ -61,7 +61,7 @@ function callAjax(){
                                         '<a href="javascript:void(0)" class="btn btn-primary btn-sm" onclick="callUpdateForm('+row.trx_id+','+row.id+')">Update</a> '+
                                         ' <a href="javascript:void(0)" class="btn btn-warning btn-sm" onclick="callInquiry('+row.trx_id+')">Inquiry</a>';
                                 } else if (row.va_status === 2) {
-                                    var status_va = '<a href="javascript:void(0)" class="btn btn-warning btn-sm" onclick="callInquiry('+row.trx_id+')">Inquiry</a>';
+                                    var status_va = '<a href="' + window.location.pathname + '/get_inquiry/' + row.trx_id + '" class="btn btn-default btn-sm" target="_blank">Invoice</a> ' + '<a href="javascript:void(0)" class="btn btn-warning btn-sm" onclick="callInquiry('+row.trx_id+')">Inquiry</a>';
                                 } else {
                                     var status_va = '-';
                                 }

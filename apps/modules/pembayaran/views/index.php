@@ -4,6 +4,7 @@
         <button type="button" class="btn btn-primary" id="create_billing" data-toggle="modal" data-target="#m_modal_4" >
             Create Billing
         </button>
+        My URI  <?=$this->uri->segment(1);?>
     </div>
 </div>
 <input type="hidden" value="<?=site_url('pembayaran/') ?>" id="base_url_id">
